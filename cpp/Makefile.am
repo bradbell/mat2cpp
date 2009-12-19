@@ -1,6 +1,11 @@
 #
-AM_CPPFLAGS         = -I$(top_builddir) -I$(BOOST_DIR)
-AM_CXXFLAGS         = -g
+AM_CPPFLAGS         = \
+	-I$(top_srcdir) \
+	-I$(BOOST_DIR) \
+	$(COMPILE_FLAGS)
+#
+AM_CXXFLAGS         = \
+	$(COMPILE_FLAGS)
 LDADD               = ../lib/libmat2cpp.a -llapack 
 #
 noinst_PROGRAMS     = mat2cpp_ok getstarted

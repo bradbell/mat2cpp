@@ -10,6 +10,16 @@ else
 	AC_MSG_ERROR( [ BOOST_DIR=$BOOST_DIR ] )
 fi
 
+dnl The C++ error and warning flags for every compliation ---------------
+AC_MSG_CHECKING( [COMPILE_FLAGS] )
+AC_SUBST(COMPILE_FLAGS)
+AM_CONDITIONAL(mat2cpp_COMPILE_FLAGS, test "$COMPILE_FLAGS" != "" )
+if test "$COMPILE_FLAGS" != "" ; then
+	AC_MSG_RESULT( [COMPILE_FLAGS=$COMPILE_FLAGS] ) 
+else
+	AC_MSG_RESULT( [no] )
+fi 
+
 dnl Run any macros required for proper operation of generated Makefiles
 dnl nostdinc: Do not define standard include directories in generated Makefiles
 AM_INIT_AUTOMAKE(nostdinc)

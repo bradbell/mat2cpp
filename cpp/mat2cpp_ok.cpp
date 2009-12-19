@@ -1,6 +1,7 @@
 /*
 $begin mat2cpp_ok.cpp$$ 
 $spell
+	const
 	randn
 	cholesky
 	cstdlib

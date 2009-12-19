@@ -4,7 +4,7 @@ SUBDIRS = lib cpp
 include_HEADERS = mat2cpp.hpp
 #
 EXTRA_DIST = \
-	Build \
+	build.sh \
 	RunOMhelp \
 	mat2cpp.omh \
 	doc \
