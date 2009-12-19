@@ -1,0 +1,58 @@
+$begin element_prod$$
+$index element, product$$
+$index product, element$$
+$index element_prod$$
+$spell
+	ublas
+	cassert
+	hpp
+	namespace
+	const
+	Elementwise
+	Matlab or Octave
+	C++
+$$
+
+$section Elementwise Product$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%z% = %x% .* %y%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%z% = element_prod(%x%, %y%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ and $italic y$$ are a $latex m  \times n$$ matrices,
+$syntax%
+	%z% = %x% .* %y%
+%$$
+sets $italic z$$ to the $latex m \times n$$ matrix with 
+the $th (i,j)$$ element given by
+$latex \[
+	z_{i,j} = x_{i,j} * y_{i,j}
+\] $$
+
+$subhead Example$$
+$code
+$verbatim%mat/element_prod_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%z% = element_prod(%x%, %y%)
+%$$
+where $italic x$$, $italic y$$ and $italic z$$
+ublas $code matrix<double>$$ objects with size
+$latex m  \times n$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/element_prod_ok.cpp%5%$$
+$$
+
+$end

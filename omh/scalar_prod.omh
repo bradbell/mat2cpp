@@ -1,0 +1,61 @@
+$begin scalar_prod$$
+$index scalar, product$$
+$index product, scalar$$
+$index scalar_prod$$
+$spell
+	ublas
+	Matlab or Octave
+	C++
+$$
+
+$section Scalar Product$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%z% = %x% * %y%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%z% = %x% * %y%$$
+$rnext $cnext
+$syntax%%z% *= %y%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex m  \times n$$ matrix
+and $italic y$$ is a scalar 
+$syntax%
+	%z% = %x% * %y%
+%$$
+set $italic z$$ to the $latex m \times n$$ matrix with 
+the $latex (i,j)$$ element given by
+$latex \[
+	z_{i,j} = x_{i,j} * y
+\] $$
+
+$subhead Example$$
+$code
+$verbatim%mat/scalar_prod_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%z% = %x% * %y%
+%$$
+where $italic x$$, $italic z$$ are 
+ublas $code matrix<double>$$ objects of size $latex m \times n$$ and
+$italic y$$ is a $code double$$ object.
+In the case where $italic x$$ and $italic z$$ are the same matrix,
+you should use
+$syntax%
+	%z% *= %y%
+%$$
+
+$subhead Example$$
+$code
+$verbatim%cpp/scalar_prod_ok.cpp%5%$$
+$$
+
+$end

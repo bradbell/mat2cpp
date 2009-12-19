@@ -1,0 +1,58 @@
+$begin element_div$$
+$spell
+	ublas
+	cassert
+	div
+	hpp
+	namespace
+	const
+	Elementwise
+	Matlab or Octave
+	C++
+$$
+$index element_div$$
+$index element, division$$
+$index division, element$$
+
+$section Elementwise Division$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%z% = %x% ./ %y%%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%z% = element_div(%x%, %y%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ and $italic y$$ are a $latex m  \times n$$ matrices,
+$syntax%
+	%z% = %x% ./ %y%
+%$$
+sets $italic z$$ to the $latex m \times n$$ matrix with 
+the $th (i,j)$$ element given by
+$latex \[
+	z_{i,j} = x_{i,j} / y_{i,j}
+\] $$
+
+$subhead Example$$
+$code
+$verbatim%mat/element_div_ok.m%5%$$
+$$
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%z% = element_div(%x%, %y%)
+%$$
+where $italic x$$, $italic y$$ and $italic z$$
+ublas $code matrix<double>$$ objects with size
+$latex m  \times n$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/element_div_ok.cpp%5%$$
+$$
+
+$end

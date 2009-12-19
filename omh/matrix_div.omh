@@ -1,0 +1,83 @@
+/*
+$begin matrix_div$$
+$spell
+	ublas
+	cpp
+	C++
+	Lapack
+	dgesv
+	nrhs
+	lda
+	ipv
+	ldb
+	fm
+	fn
+	cassert
+	div
+	hpp
+	namespace
+	const
+	Elementwise
+	Matlab or Octave
+	C++
+$$
+$index matrix_div$$
+$index matrix, division$$
+$index division, matrix$$
+
+$section Matrix Division$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%z% = %x% \ %y%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%z% = matrix_div(%x%, %y%, %rank%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex m  \times m$$ matrix
+and $italic y$$ is an $latex m \times n$$ matrix,
+$syntax%
+	%z% = %x% \ %y%
+%$$
+sets $italic z$$ to the $latex m \times n$$ matrix such that
+$latex \[
+	x * z = y
+\] $$
+
+$subhead Example$$
+$code
+$verbatim%mat/matrix_div_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%z% = matrix_div(%x%, %y%, %rank%)
+%$$
+where $italic x$$, $italic y$$ and $italic z$$ are 
+ublas $code matrix<double>$$ objects. 
+The size of $italic x$$ is $latex m \times m$$,
+the size of $italic y$$ is $latex m \times n$$,
+and the size of $italic z$$ is $latex m \times n$$ matrix.
+The return value of the $code size_t$$ argument $italic rank$$ is the rank
+of the matrix $italic x$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/matrix_div_ok.cpp%5%$$
+$$
+
+$children%
+	lib/matrix_div.cpp
+%$$
+
+$subhead Source$$
+The file $xref/matrix_div.cpp/$$ contains the 
+C++ source code for these functions.
+
+$end
+*/

@@ -1,0 +1,55 @@
+$begin scalar$$
+$index scalar$$
+$spell
+	ublas
+	Matlab
+$$
+
+$section Convert Matrix to Scalar$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%x%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%y% = scalar(%x%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex 1  \times 1$$ matrix,
+$syntax%
+	%x%
+%$$
+behaves as if it were a scalar.
+
+$subhead Example$$
+$code
+$verbatim%mat/scalar_ok.m%5%$$
+$$
+
+
+$head C++$$
+The following is a C++ implementation of 
+conversion from a matrix to a scalar: 
+$syntax%
+	%y% = scalar(%x%)
+%$$
+where $italic x$$ is a $latex 1 \times 1$$ 
+ublas $code matrix<double>$$ 
+and $italic y$$ is a $code double$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/scalar_ok.cpp%5%$$
+$$
+
+$children%
+	lib/scalar.cpp
+%$$
+
+$subhead Source$$
+The file $xref/scalar.cpp/$$ contains the 
+C++ source code for this operation.
+
+$end

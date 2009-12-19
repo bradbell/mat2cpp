@@ -1,0 +1,143 @@
+#!/bin/bash
+# ----------------------------------------------------------------
+# Developers Only: Change to location of boost on your machine
+boost_dir=/usr/include/boost-1_33_1
+# ----------------------------------------------------------------
+#
+Today=`date +%g-%m-%d`
+#
+for name in \
+	NEWS \
+	README \
+	AUTHORS \
+	ChangeLog 
+do
+	if [ ! -e $name ]
+	then
+		echo "no $name file in mat2cpp distribution"  > $name
+	fi
+done
+#
+if [ "$1" == "version" ] || [ "$1" = "all" ]
+then
+	mv -f configure.ac   configure.tmp
+	sed configure.tmp > configure.ac -e \
+	"s|(mat2cpp, [0-9][0-9]-[0-9][0-9]-[0-9][0-9],|(mat2cpp, $Today,|"
+	diff configure.ac  configure.tmp
+	#
+	mv -f mat2cpp.omh mat2cpp.tmp
+	sed < mat2cpp.tmp > mat2cpp.omh \
+	-e "s|mat2cpp-[0-9][0-9]-[0-9][0-9]-[0-9][0-9]|mat2cpp-$Today|"
+	diff mat2cpp.omh  mat2cpp.tmp 
+	#
+	if [ "$1" != "all" ]
+	then
+		exit 0
+	fi
+fi
+#
+if [ "$1" == "autoconf" ] || [ "$1" = "all" ]
+then
+	echo "----------------------------------------------------------------"
+	echo "Some systems generate warnings when running aclocal"
+	echo "aclocal"
+	aclocal
+	echo "----------------------------------------------------------------"
+	#
+	echo "autoheader"
+	autoheader
+	#
+	echo "autoconf"
+	autoconf
+	if [ "$1" != "all" ]
+	then
+		exit 0
+	fi
+fi
+if [ "$1" == "automake" ] || [ "$1" = "all" ]
+then
+	#
+	echo "automake --add-missing"
+	automake --add-missing
+	if [ "$1" != "all" ]
+	then
+		exit 0
+	fi
+fi
+#
+if [ "$1" == "configure" ] || [ "$1" = "all" ]
+then
+	echo "./configure BOOST_DIR=$boost_dir"
+	./configure  BOOST_DIR=$boost_dir
+	if [ "$1" != "all" ]
+	then
+		exit 0
+	fi
+fi
+#
+if [ "$1" == "make" ] || [ "$1" = "all" ]
+then
+	echo "make"
+	make 
+	if [ "$1" != "all" ]
+	then
+		exit 0
+	fi
+fi
+if [ "$1" == "omhelp" ] || [ "$1" = "all" ]
+then
+	./RunOMhelp
+	if [ "$1" != "all" ]
+	then
+		exit 0
+	fi
+fi
+#
+if [ "$1" == "dist" ] || [ "$1" = "all" ]
+then
+	echo "make dist"
+	make dist
+	if [ "$1" != "all" ]
+	then
+		exit 0
+	fi
+fi
+if [ "$1" == "test" ] || [ "$1" = "all" ]
+then
+	if [ -e "mat2cpp-$Today" ]
+	then
+		rm mat2cpp-$Today
+	fi
+	echo "tar -xvzf mat2cpp-$Today.tar.gz"
+	tar -xvzf mat2cpp-$Today.tar.gz
+	cd mat2cpp-$Today
+	./configure  BOOST_DIR=$boost_dir
+	make
+	if [ "$1" != "all" ]
+	then
+		exit 0
+	fi
+fi
+if [ "$1" = "all" ]
+then
+	exit 0
+fi
+if [ "$1" = "" ]
+then
+	echo "usage: Build option (where valid options are listed below)" 
+else
+	echo "$1 is not a valid option (valid options are listed below)"
+fi
+echo "option"
+echo "------"
+echo "version         update configure.ac version number"
+echo "autoconf        run aclocal, autoheader, and autoconf"
+echo "automake        run automake"
+echo "configure       run configure"
+echo "make            run make"
+echo "omhelp          build help for system"
+echo "dist            run make dist"
+echo "test            create distribution directory and compile its tests"
+echo ""
+echo "Build all       execute, in the order above, all of the steps above"
+exit 1

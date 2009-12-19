@@ -1,0 +1,85 @@
+$begin  getstarted$$
+$spell
+	Matlab or Octave
+	getstarted
+	cpp
+	hpp
+	dir
+	llapack
+	libmat2cpp
+	lmat2cpp
+	ublas
+$$
+
+$section Getting Started$$
+
+$head Purpose$$
+This is a quick introduction by example to the
+conversion of Matlab or Octave to C++ using  
+$href%http://www.boost.org/libs/numeric/ublas/doc/overview.htm%ublas%$$
+and this package.
+
+$head Problem Definition$$
+Suppose that we want to solve the following set of linear equations:
+$latex \[
+\left( \begin{array}{cc}
+	1 & 2 \\
+	3 & 4 
+\end{array} \right)
+\left( \begin{array}{cc}
+	x_1 \\
+	x_2 
+\end{array} \right)
+=
+\left( \begin{array}{cc}
+	3 \\
+	4 
+\end{array} \right)
+\] $$
+
+$head Matlab or Octave Solution$$
+
+$subhead Program$$
+$code
+$comment%mat/getstarted.m%$$
+$$
+
+$subhead Output$$
+Executing this program in Octave yields the following output:
+$codep
+x =
+
+  0.00000
+  0.50000
+$$
+
+$head Conversion to C++ using C++$$
+
+$subhead Program$$
+$code
+$verbatim%cpp/getstarted.cpp%$$
+$$
+
+$subhead Compile and Link$$
+The following command compiles and links this program
+using the GNU C++ compiler:
+$syntax%
+g++ getstarted.cpp -o getstarted \
+	-I%boost_dir% -L%prefix_dir%/lib -lmat2cpp -llapack
+%$$
+where $italic boost_dir$$ is the directory where the 
+$syntax%
+	%boost_dir%/boost/numeric/ublas/matrix.hpp
+%$$
+include file is installed 
+(see the $xref/mat2cpp/Test and Install/mat2cpp install/$$ instructions).
+
+$subhead Output$$
+$index output, matrix$$
+$index matrix, output$$
+$code
+$comment%getstarted.out%$$
+$$
+
+
+$end

@@ -1,0 +1,70 @@
+/*
+$begin cholesky$$
+$latex \newcommand{\T}{{\rm T}}$$
+$spell
+	cholesky
+	Matlab
+	chol
+	ublas
+$$
+$index cholesky$$
+$index matrix, cholesky$$
+$index cholesky, matrix$$
+
+$section Cholesky Factor a Matrix Division$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%[%y%, %r%] = chol(%x%)%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%y% = cholesky(%x%, %r%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex m  \times m$$ matrix
+$syntax%
+	%y% = chol(%x%)
+%$$
+sets $italic z$$ to the 
+upper triangular $latex m \times m$$ matrix such that
+$latex \[
+	 x = y^\T * y
+\] $$
+If $italic r$$ is not zero, then the matrix $italic x$$
+is singular and $italic r$$ is the rank of the largest non-singular
+principal minor.
+
+$subhead Example$$
+$code
+$verbatim%mat/cholesky_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%z% = cholesky(%x%, %y%, %rank%)
+%$$
+where $italic x$$ and $italic y$$ are 
+ublas $code matrix<double>$$ objects. 
+The size of $italic x$$ and $italic y$$ are $latex m \times m$$,
+The return value of the $code size_t$$ argument $italic rank$$ is the rank
+of the largest principal minor of $italic x$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/cholesky_ok.cpp%5%$$
+$$
+
+$children%
+	lib/cholesky.cpp
+%$$
+
+$subhead Source$$
+The file $xref/cholesky.cpp/$$ contains the 
+C++ source code for these functions.
+
+$end
+*/

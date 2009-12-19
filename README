@@ -1,0 +1,6 @@
+If your web browser supports MathML, use the *xml version of the documentaiton,
+otherwise use the *.htm version:
+
+Top of Docuentation tree:
+	doc/index.htm
+	doc/index.xml

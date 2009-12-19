@@ -1,0 +1,64 @@
+/*
+$begin matrix_prod$$
+
+$index matrix, product$$
+$index product, matrix$$
+
+$index matrix, multiply$$
+$index multiply, matrix$$
+
+$index matrix, times$$
+$index times, matrix$$
+
+$spell
+	ublas
+	Matlab or Octave
+	C++
+$$
+
+$section Matrix Product$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%z% = %x% * %y%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%z% = prod(%x%, %y%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex m  \times n$$ matrix
+and $italic y$$ is an $latex n  \times p$$ matrix,
+$syntax%
+	%z% = %x% * %y%
+%$$
+sets $italic z$$ to the $latex m \times p$$ matrix with 
+the $latex (i,j)$$ element given by
+$latex \[
+	z_{i,j} = \sum_{k=1}^n x_{i,k} y_{k,j}
+\] $$
+
+$subhead Example$$
+$code
+$verbatim%mat/matrix_prod_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%z% = prod(%x%, %y%)
+%$$
+where $italic x$$, $italic y$$ and $italic z$$ are
+ublas $code matrix<double>$$ objects with sizes 
+$latex m \times n$$, $latex n \times p$$ and 
+$latex m \times p$$ respectively.
+
+$subhead Example$$
+$code
+$verbatim%cpp/matrix_prod_ok.cpp%5%$$
+$$
+
+$end
+*/

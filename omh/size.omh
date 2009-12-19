@@ -1,0 +1,50 @@
+$begin size$$
+$index size$$
+$spell
+	ublas
+	Matlab
+	mat2cpp
+$$
+
+$section  Matrix Size$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%[%m%, %n%] = size(%x%)%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%m% = %x%.size1()%$$
+$rnext $cnext
+$syntax%%n% = %x%.size2()%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is a matrix,
+the Matlab or Octave syntax
+$syntax%
+	[%m%, %n%] = size(%x%)
+%$$
+returns the row dimension $italic m$$ and column dimension $italic n$$
+of the matrix $italic x$$.
+
+$subhead Example$$
+$code
+$verbatim%mat/size_ok.m%5%$$
+$$
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%m% = %x%.size1()
+	%n% = %x%.size2()
+%$$
+where $italic x$$ is a ublas $code matrix<double>$$ and
+$italic m$$, $italic n$$ are $code size_t$$ objects.
+
+$subhead Example$$
+$code
+$verbatim%cpp/size_ok.cpp%5%$$
+$$
+
+$end

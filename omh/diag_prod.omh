@@ -1,0 +1,69 @@
+$begin diag_prod$$
+$index diagonal, product$$
+$index product, diagonal$$
+$index diag_prod$$
+$spell
+	ublas
+	cpp
+	cassert
+	hpp
+	namespace
+	const
+	Matlab or Octave
+	C++
+$$
+
+$section Diagonal Matrix Product with General Matrix$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%z% = diag(%x%) * %y%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%z% = diag_prod(%x%, %y%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex 1 \times m$$ or $latex m \times 1$$ matrix,
+and $italic y$$ are a $latex m  \times n$$ matrix,
+$syntax%
+	%z% = diag(%x%) * %y%
+%$$
+sets $italic z$$ to the $latex m \times n$$ matrix with 
+the $latex (i,j)$$ element given by
+$latex \[
+	z_{i,j} = x_i * y_{i,j}
+\] $$
+
+$subhead Example$$
+$code
+$verbatim%mat/diag_prod_ok.m%5%$$
+$$
+
+
+$head C++$$
+The following is a C++ implementation of the operation above 
+with the syntax
+$syntax%
+	%z% = diag_prod(%x%, %y%)
+%$$
+where $italic x$$ is an $latex 1 \times m$$ or $latex m \times 1$$ 
+ublas $code matrix<double>$$ object, 
+and $italic y$$, $italic z$$ are  ublas $code matrix<double>$$ objects 
+with size $latex m  \times n$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/diag_prod_ok.cpp%5%$$
+$$
+
+$children%
+	lib/diag_prod.cpp
+%$$
+
+$subhead Source$$
+The file $xref/diag_prod.cpp/$$ contains the 
+C++ source code for these functions.
+
+$end

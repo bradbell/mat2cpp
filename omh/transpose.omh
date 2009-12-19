@@ -1,0 +1,53 @@
+/*
+$begin transpose$$
+$index transpose$$
+$spell
+	ublas
+	Matlab or Octave
+	C++
+	trans
+$$
+
+$section Matrix Transpose$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%y% = %x%'%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%y% = trans(%x%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex m  \times n$$ matrix,
+$syntax%
+	%y% = %x%'
+%$$
+sets $italic y$$ to the $latex n \times m$$ matrix with
+$latex \[
+	y_{j,i} = x_{i,j}
+\] $$ 
+
+$subhead Example$$
+$code
+$verbatim%mat/transpose_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%y% = trans(%x%)
+%$$
+where $italic x$$  and $italic y$$ are 
+ublas $code matrix<double>$$ objects with sizes
+$latex m \times n$$ and $latex n \times m$$ respectively.
+
+$subhead Example$$
+$code
+$verbatim%cpp/transpose_ok.cpp%5%$$
+$$
+
+$end
+*/

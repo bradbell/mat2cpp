@@ -1,0 +1,17 @@
+$begin scalar_valued$$
+$spell
+	matrixwise
+$$
+
+
+$section Scalar Valued Operations$$
+
+$childtable%
+	omh/max.omh%
+	omh/min.omh%
+	omh/scalar.omh%
+	omh/sum.omh
+%$$
+
+
+$end

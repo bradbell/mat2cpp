@@ -1,0 +1,68 @@
+$begin element_unary$$
+$spell
+	Matlab
+	Ublas
+	elementwise
+	mat2cpp
+$$
+$index elementwise, unary$$
+$index unary, elementwise$$
+$index math, function$$
+
+$section Matlab or Octave Elementwise Unary Functions$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%y% = %f%(%x%)%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%y% = %f%(%x%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex m  \times n$$ matrix,
+$syntax%
+	%y% = %f%(%x%)
+%$$
+sets $italic y$$ to the $latex m \times n$$ matrix with 
+$latex \[
+	y_{i,j} = f( x_{i,j} )
+\] $$
+where $italic f$$ can be any of the following functions:
+$table
+$bold f$$   $cnext $bold Description$$  $rnext
+$code abs$$ $cnext absolute value       $rnext
+$code log$$ $cnext logarithm            
+$tend
+
+$subhead Example$$
+$code
+$verbatim%mat/element_unary_ok.m%5%$$
+$$
+
+
+$head C++$$
+The following is a C++ implementation of the elementwise
+unary functions above with the syntax:
+$syntax%
+	%y% = %f%(%x%)
+%$$
+where $italic x$$ and $italic y$$
+ublas $code matrix<double>$$ objects with size
+$latex m  \times n$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/element_unary_ok.cpp%5%$$
+$$
+
+$children%
+	lib/element_unary.cpp
+%$$
+
+$subhead Source$$
+The file $xref/element_unary.cpp/$$ contains the 
+C++ source code for these functions.
+
+$end

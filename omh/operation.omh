@@ -1,0 +1,14 @@
+$begin operation$$
+
+
+$section Elementary Operations$$
+
+$childtable%
+	omh/elementwise.omh%
+	omh/matrixwise.omh%
+	omh/scalar_valued.omh%
+	omh/other.omh
+%$$
+
+
+$end

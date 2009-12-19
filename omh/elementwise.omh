@@ -1,0 +1,20 @@
+$begin elementwise$$
+$spell
+	elementwise
+$$
+
+
+$section Elementwise Operations$$
+
+$childtable%
+	omh/add.omh%
+	omh/element_div.omh%
+	omh/element_prod.omh%
+	omh/element_unary.omh%
+	omh/scalar_div.omh%
+	omh/scalar_prod.omh%
+	omh/sub.omh
+%$$
+
+
+$end

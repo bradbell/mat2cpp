@@ -1,0 +1,61 @@
+/*
+$begin sum$$
+$index sum$$
+$spell
+	ublas
+	Matlab
+$$
+
+$section Sum The Elements of a Matlab$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%y% = sum( sum(%x%) )%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%y% = sum(%x%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex m  \times n$$ matrix,
+$syntax%
+	%y% = sum( sum(%x%) )
+%$$
+sets $italic y$$ to the sum of the elements in the matrix $italic x$$.
+If either $italic m$$ or $italic n$$ is equal to one,
+$syntax%
+	%y% = sum(%x%)
+%$$
+also sets $italic y$$ to the sum of the elements in the matrix $italic x$$.
+
+$subhead Example$$
+$code
+$verbatim%mat/sum_ok.m%5%$$
+$$
+
+
+$head C++$$
+The following is a C++ implementation of the 
+Matlab or Octave syntax above:
+$syntax%
+	%y% = sum(%x%)
+%$$
+where $italic x$$ is an $latex m \times n$$ ublas $code matrix<double>$$
+and $italic y$$ is a $code double$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/sum_ok.cpp%5%$$
+$$
+
+$children%
+	lib/sum.cpp
+%$$
+
+$subhead Source$$
+The file $xref/sum.cpp/$$ contains the 
+C++ source code for this operation.
+
+$end
+*/

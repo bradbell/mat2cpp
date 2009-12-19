@@ -1,0 +1,71 @@
+$begin slice$$
+$index slice$$
+$index sub-matrix$$
+$spell
+	ublas
+	Matlab
+	len
+	mat2cpp
+$$
+
+$section Matrix Slices$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%r% = %r_start% : %r_stride% : %r_limit%$$
+$rnext $cnext
+$syntax%%c% = %c_start% : %c_stride% : %c_limit%$$
+$rnext $cnext
+$syntax%%x%(%r%, %c%)%$$
+
+$rnext
+$bold C++$$ $cnext 
+$syntax%slice %r% = slice(%r_start%, %r_stride%, %r_len%)%$$
+$rnext $cnext
+$syntax%slice %c% = slice(%c_start%, %c_stride%, %c_len%)%$$
+$rnext $cnext
+$syntax%matrix_slice_double (%x%, %r%, %c%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$, $italic y$$ are matrices,
+$italic r$$, $italic c$$ are vectors,
+and the other values below are integer scalars,
+$syntax%
+	%r% = %r_start% : %r_stride% : %r_limit%
+	%c% = %c_start% : %c_stride% : %c_limit%
+	%x%(%r%, %c%) = %y%
+%$$
+Sets $italic r$$ to the vector of integers starting at
+$italic r_start$$, incrementing by $italic r_stride$$ and all of which
+are less than or equal $italic r_limit$$.
+It sets $italic c$$ in a similar fashion and then sets
+the corresponding sub-set of rows and columns of $italic x$$ to the 
+matrix in $italic y$$.
+
+$subhead Example$$
+$code
+$verbatim%mat/slice_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	slice %r% = slice(%r_start%, %r_stride%, %r_len%)
+	slice %c% = slice(%c_start%, %c_stride%, %c_len%)
+	matrix_slice_double (%x%, %r%, %c%) = %y%
+%$$
+where $italic x$$ is a ublas $code matrix<double>$$ object,
+$italic r$$, $italic c$$ are 
+$code mat2cpp$$ $code matrix_slice_double$$ objects,
+and the other values are $code size_t$$ scalars.
+
+
+$subhead Example$$
+$code
+$verbatim%cpp/slice_ok.cpp%5%$$
+$$
+
+$end

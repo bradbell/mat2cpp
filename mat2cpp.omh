@@ -1,0 +1,129 @@
+$begin mat2cpp$$
+$spell
+	dir
+	llapack
+	lmat2cpp
+	Matlab
+	Ublas
+	namespace
+	mat2cpp
+	hpp
+	xvzf
+	gz
+	su
+	getstarted
+$$
+
+$section Example Conversion of Matlab or Octave to C++ using Ublas$$
+
+$head Purpose$$
+The purpose of this package is to provide an example of converting
+$href%http://www.mathworks.com/%Matlab%$$
+or
+$href%http://www.gnu.org/software/octave/%Octave%$$
+to C++
+with the aid of 
+$href%http://www.boost.org/libs/numeric/ublas/doc/overview.htm%ublas%$$.
+
+$head Test and Install$$
+$list number$$
+Download the file
+$href%mat2cpp-09-12-18.tar.gz%$$.
+
+$lnext
+Extract the distribution in to the $code mat2cpp-09-12-18$$ subdirectory
+with the command
+$codep
+	tar -xvzf mat2cpp-09-12-18.tar.gz
+$$
+
+$lnext
+Build the library and test program with the command
+$syntax%
+	cd mat2cpp-09-12-18
+	./configure --prefix=%prefix_dir% BOOST_DIR=%boost_dir%
+	make
+%$$
+where $italic prefix$$ is the prefix for this installation
+and $italic boost_dir$$ is the directory where the file
+$syntax%
+	%boost_dir%/boost/numeric/ublas/matrix.hpp
+%$$
+is located.
+
+
+$lnext
+Test the installation of the Matlab and Octave files with the commands
+$codep
+	cd mat
+	octave
+	mat2cpp_ok
+	quit
+	cd ..
+$$
+The $code mat2cpp_ok$$ program should have responded 
+that all the tests passed
+(you can also run the program in Matlab).
+
+$lnext
+Test the installation of the C++ files with the commands
+$codep
+	cd cpp
+	./mat2cpp_ok
+	cd ..
+$$
+The $code mat2cpp_ok$$ program should have responded 
+that all the tests passed.
+(you can also run the program in Matlab).
+
+
+$lnext
+Install the $code mat2cpp$$ library and include file in the standard locations
+with the following commands
+$codep
+	su
+	make install
+	exit
+$$
+(note you will have to entry the root password for the su command).
+
+$lnext 
+Compile and run the $xref/getstarted/$$ example with the following commands:
+$syntax%
+	cd cpp
+	g++ getstarted.cpp -o getstarted \
+		-I%boost_dir% -L%prefix_dir%/lib -lmat2cpp -llapack
+	./getstarted
+%$$
+$lend
+	
+
+
+
+
+
+$head mat2cpp.hpp$$
+$index library, mat2cpp$$
+$index link, mat2cpp$$
+The include file $xref/mat2cpp.hpp/$$ includes the 
+$href%http://www.boost.org/libs/numeric/ublas/doc/index.htm%C++%$$
+header file
+$href%http://www.boost.org/libs/numeric/ublas/doc/matrix.htm%matrix.hpp%$$.
+It then declares some library routines for that aid in converting
+from the Matlab or Octave languages to C++. 
+
+
+$contents%
+	COPYING%
+	omh/getstarted.omh%
+	omh/operation.omh%
+	mat2cpp.hpp%
+	mat/mat2cpp_ok.m%
+	cpp/mat2cpp_ok.cpp%
+	NEWS%
+	omh/library.omh
+%$$
+
+$end
+	
+

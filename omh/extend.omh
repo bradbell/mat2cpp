@@ -1,0 +1,60 @@
+$begin extend$$
+$index extend$$
+$spell
+	Matlab
+	resize
+	mat2cpp
+	ublas
+$$
+
+$section Extending a Vector$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%x%(%i%, %n% + 1) = %y%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%x%.resize(%m%, %n% + 1)%$$
+$rnext $cnext
+$syntax%%x%(%i%, %n%) = %y%$$
+$tend
+
+$head Matlab or Octave$$
+Suppose that $italic x$$ is a $latex m \times n$$ matrix,
+$italic i$$ is an index between one and $italic m$$,
+and $italic y$$ is a scalar,
+the Matlab or Octave syntax
+$syntax%
+	%x%(%i%, %n% + 1) = %y%
+%$$
+extends $italic x$$ to an $latex m \times (n+1)$$ matrix
+and sets the element with index $latex (i, n+1)$$
+to have value $italic y$$.
+
+$subhead Example$$
+$code
+$verbatim%mat/extend_ok.m%5%$$
+$$
+
+
+$head C++$$
+Suppose that $italic x$$ is an $latex m \times n$$ 
+ublas $code matrix<double>$$,
+$italic i$$ is a $code size_t$$ index between zero and $latex m - 1$$,
+and $italic y$$ has type $code double$$,
+the C++ syntax 
+$syntax%
+	%x%.resize(%m%, %n% + 1)
+	%x%(%i%, %n%) = %y%
+%$$
+extends the matrix $italic x$$ to have size $latex m \times (n + 1)$$
+and sets the element with index $latex (i, n)$$
+to have value $italic y$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/extend_ok.cpp%5%$$
+$$
+
+$end

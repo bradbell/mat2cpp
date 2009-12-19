@@ -1,0 +1,146 @@
+$begin library$$
+$spell
+	OMhelp
+	autoconf
+	automake
+	cpp
+	dd
+	dist
+	elementwise
+	gz
+	hpp
+	makefile
+	matlab
+	omhelp
+	mm
+	namespace
+	omh
+	yy
+$$
+
+
+
+
+$section Adding a New Routine to the Mat2cpp Library$$
+
+$head Purpose$$
+This guide lists the steps you must go through to add a new feature
+to the $code mat2cpp$$ library.
+For the sake of presentation, we will call it $italic new_routine$$.
+
+$head Include File$$
+In the file $code mat2cpp/mat2cpp.hpp$$:
+In the comments,
+under the heading mat2cpp Functions, 
+add $italic new_routine$$
+to the list of functions in the $code mat2cpp$$ namespace.
+In the source code,
+an external prototype for $italic new_routine$$.
+
+
+$head Library$$
+Create the file $syntax%mat2cpp/lib/%new_routine%.cpp%$$.
+This file should contain the source for the routine 
+together with the proper comments so OMhelp can 
+include the source code in the documentation.
+In addition, add 
+$syntax%mat2cpp/lib/%new_routine%.cpp%$$
+to the file $code mat2cpp/lib/Makefile.am$$.
+
+
+$head Documentation$$
+Create the file $syntax%mat2cpp/omh/%new_routine%.omh%$$.
+This file should contain the OMhelp documentation for the routine.
+In addition,
+decide which documentation file should be the parent 
+of this routine; for example,
+should it come under $code mat2cpp/omh/elementwise.omh$$
+or perhaps $code mat2cpp/omh/other.omh$$.
+Then add a reference to
+$syntax%mat2cpp/omh/%new_routine%.omh%$$
+in the parent documentation file.
+You should also add a link to the documentation
+for $italic new_routine$$ in $code mat2cpp/NEWS$$.
+
+$head Octave Test$$
+Create the file
+$syntax%mat2cpp/mat/%new_routine%_ok.m%$$
+This file should contain a test of the feature
+you are adding in the context of Matlab or Octave.
+You will also need to add
+$syntax%mat2cpp/cpp/%new_routine%_ok%$$
+to the file $code mat2cpp/cpp/mat2cpp_ok.m$$
+The execute the tests in Octave or Matlab
+to make sure that it is correct
+(before going ahead with a similar test in C++
+using the new code).
+
+$head C++ Test$$
+Create the file 
+$syntax%mat2cpp/cpp/%new_routine%_ok.cpp%$$.
+This file should contain a test of $italic new_routine$$.
+In addition, add 
+$syntax%mat2cpp/cpp/%new_routine%_ok.cpp%$$
+to the file $code mat2cpp/cpp/Makefile.am$$.
+You will also need to add
+$syntax%mat2cpp/cpp/%new_routine%_ok%$$
+to the file $code mat2cpp/cpp/mat2cpp_ok.cpp$$
+
+$head Build$$
+In the $code mat2cpp$$ directory,
+execute the command
+$codep
+	./Build version
+	./Build autoconf
+	./Build automake
+$$
+This will make sure that your $code Makefile.am$$ files
+can be processed by $code automake$$.
+If no errors result,
+continue on with the command
+$codep
+	./Build configure
+$$
+If the boost directory is not proper for your system,
+then edit the $code Build$$ script so that it is and 
+repeat this command.
+Then execute the commands
+$codep
+	./Build make
+	cpp/mat2cpp_ok
+$$
+This should execute the complete set of tests including
+the one you just added.
+The next step is to execute
+$codep
+	./Build omhelp
+$$
+This will build you new documentation 
+(and you may have to correct OMhelp errors before continuing).
+You can complete the changes by executing the commands:
+$codep
+	./Build dist
+	./Build test
+$$
+The change into the directory and test the distribution
+$syntax%
+	cd mat2cpp-%yy%-%mm%-%dd%
+	cpp/mat2cpp_ok
+%$$
+This should run the C++ version of the tests program.
+$codep
+	cd mat
+	octave
+	mat2cpp_ok
+$$
+This should run the Octave version of the test program
+(running the Matlab is similar).
+
+$head Distribution$$
+The final distribution is
+$syntax%
+	mat2cpp-%yy%-%mm%-%dd%.tar.gz
+%$$
+	
+
+$end

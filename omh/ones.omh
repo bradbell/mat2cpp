@@ -1,0 +1,48 @@
+$begin ones$$
+$index ones$$
+$spell
+	ublas
+	Matlab
+	mat2cpp
+$$
+
+$section Matrix of Ones$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%x% = ones(%m%, %n%)%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%scalar_matrix<double> %x%(%m%, %n%, 1.)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic m$$ and $italic n$$ are integer scalars,
+the Matlab or Octave syntax
+$syntax%
+	%x% = ones(%m%, %n%)
+%$$
+sets $italic x$$ to an $latex m \times n$$ matrix with all 
+its elements equal to one.
+
+$subhead Example$$
+$code
+$verbatim%mat/ones_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	scalar_matrix<double> %x%(%m%, %n%, 1.)
+%$$
+where $italic m$$ and $italic n$$ are $code size_t$$ objects
+and $italic x$$ is an $latex m \times n$$ ublas $code matrix<double>$$ object.
+
+$subhead Example$$
+$code
+$verbatim%cpp/ones_ok.cpp%5%$$
+$$
+
+$end

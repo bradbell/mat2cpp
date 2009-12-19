@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -e doc ]
+then
+	rm -r doc
+fi
+mkdir doc
+cd doc
+if ! omhelp ../mat2cpp.omh -xml -debug
+then
+	echo "aborting (see OMhelp error message above)"
+	exit
+fi
+omhelp ../mat2cpp.omh -debug

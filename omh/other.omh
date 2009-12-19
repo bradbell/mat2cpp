@@ -1,0 +1,19 @@
+$begin other$$
+$spell
+$$
+
+
+$section Other Operations$$
+
+$childtable%
+	omh/extend.omh%
+	omh/ones.omh%
+	omh/rand.omh%
+	omh/randn.omh%
+	omh/size.omh%
+	omh/slice.omh%
+	omh/zeros.omh
+%$$
+
+
+$end

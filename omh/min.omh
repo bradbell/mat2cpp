@@ -1,0 +1,64 @@
+/*
+$begin min$$
+$index min$$
+$spell
+	Matlab
+	ublas
+$$
+
+$section Minimum Element of a Matrix$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%y% = min( min(%x%) )%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%y% = min(%x%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ is an $latex m  \times n$$ matrix,
+$syntax%
+	%y% = min( min(%x%) )
+%$$
+sets $italic y$$ to the minimum element in the matrix $italic x$$.
+If either $italic m$$ or $italic n$$ is equal to one,
+$syntax%
+	%y% = min(%x%)
+%$$
+also sets $italic y$$ to the minimum element in the matrix $italic x$$.
+
+$subhead Example$$
+$code
+$verbatim%mat/min_ok.m%5%$$
+$$
+
+
+$head C++$$
+The following is a C++ implementation of the 
+Matlab or Octave syntax above:
+$syntax%
+	%y% = min(%x%)
+%$$
+where $italic x$$ is a non-empty 
+(non-zero row and column size)
+ublas $code matrix<double>$$ object
+and $italic y$$ is a $code double$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/min_ok.cpp%5%$$
+$$
+
+
+$children%
+	lib/min.cpp
+%$$
+
+$subhead Source$$
+The file $xref/min.cpp/$$ contains the 
+C++ source code for this operation.
+
+$end
+*/

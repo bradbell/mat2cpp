@@ -1,0 +1,72 @@
+/*
+$begin randn$$
+$spell
+	randn
+	ublas
+	std
+	srand
+	Matlab
+$$
+$index randn, matrix$$
+$index matrix, randn$$
+$index normal, simulate$$
+$index Gaussian, simulate$$
+$index simulate, normal$$
+
+$section Normal Random Matrix$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%x% = randn(%m%, %n%)%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%x% = randn(%m%, %n%)%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic m$$ and $italic n$$ are integer scalars,
+the Matlab or Octave syntax
+$syntax%
+	%x% = randn(%m%, %n%)
+%$$
+sets $italic x$$ to an $latex m \times n$$ matrix each entry
+drawn from an independent normally distribution with mean 
+zero and variance one.
+
+$subhead Example$$
+$code
+$verbatim%mat/randn_ok.m%5%$$
+$$
+
+$head C++$$
+The following is a C++ implementation of the 
+Matlab or Octave $code randn$$ function with the syntax:
+$syntax%
+	%x% = randn(%m%, %n%)
+%$$
+where $italic m$$ and $italic n$$ are $code size_t$$ values
+and $italic x$$ is an $latex m \times n$$ 
+ublas $code matrix<double>$$ object.
+You must first call the standard library function
+$syntax%
+	std::srand(%seed%)
+%$$
+where $italic seed$$ is an $code unsigned int$$
+to initialize the random number generator $code std::rand()$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/randn_ok.cpp%5%$$
+$$
+
+$children%
+	lib/randn.cpp
+%$$
+
+$subhead Source$$
+The file $xref/randn.cpp/$$ contains the 
+C++ source code for this operation.
+
+$end
+*/

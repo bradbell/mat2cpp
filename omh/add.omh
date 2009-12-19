@@ -1,0 +1,55 @@
+/*
+$begin add$$
+$index element, add$$
+$index add, element$$
+$spell
+	ublas
+	Elementwise
+	Matlab or Octave
+	C++
+$$
+
+$section Elementwise Addition$$
+
+$head Syntax$$
+$table
+$bold Matlab or Octave$$ $cnext 
+$syntax%%z% = %x% + %y%$$
+$rnext
+$bold C++$$ $cnext 
+$syntax%%z% = %x% + %y%$$
+$tend
+
+$head Matlab or Octave$$
+If $italic x$$ and $italic y$$ are a $latex m  \times n$$ matrices,
+$syntax%
+	%z% = %x% + %y%
+%$$
+sets $italic z$$ to the $latex m \times n$$ matrix with 
+the $latex (i,j)$$ element given by
+$latex \[
+	z_{i,j} = x_{i,j} + y_{i,j}
+\] $$
+
+$subhead Example$$
+$code
+$verbatim%mat/add_ok.m%5%$$
+$$
+
+
+$head C++$$
+The corresponding C++ syntax is
+$syntax%
+	%z% = %x% + %y%
+%$$
+where $italic x$$, $italic y$$, and $italic z$$ are 
+ublas $code matrix<double>$$ objects
+with size $latex m \times n$$.
+
+$subhead Example$$
+$code
+$verbatim%cpp/add_ok.cpp%5%$$
+$$
+
+$end
+*/

@@ -1,0 +1,18 @@
+$begin matrixwise$$
+$spell
+	matrixwise
+$$
+
+
+$section Matrixwise Operations$$
+
+$childtable%
+	omh/diag_prod.omh%
+	omh/cholesky.omh%
+	omh/matrix_div.omh%
+	omh/matrix_prod.omh%
+	omh/transpose.omh
+%$$
+
+
+$end
