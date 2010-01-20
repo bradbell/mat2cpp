@@ -38,8 +38,8 @@ sed < mat2cpp.tmp > mat2cpp.omh \
 	-e "s|mat2cpp-[0-9][0-9]-[0-9][0-9]-[0-9][0-9]|mat2cpp-$Today|"
 diff mat2cpp.omh  mat2cpp.tmp 
 #
-echo "autoreconf"
-autoreconf
+echo "autoreconf --force --install"
+autoreconf --force --install
 #
 ./configure  \
 	--prefix=$prefix \
