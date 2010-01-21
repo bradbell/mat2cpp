@@ -1,10 +1,10 @@
-#!/bin/bash 
+#!/bin/bash -eu
 # ----------------------------------------------------------------
 boost_dir=/usr/include # location of boost directory on this machine
 prefix=/usr/local      # prefix for installation
 # ----------------------------------------------------------------
 #
-Today=`date +%g-%m-%d`
+Today=`date +%F | sed -e 's|-||g'`
 #
 if [ "$1" == "-g" ]
 then
@@ -28,15 +28,11 @@ do
 	fi
 done
 #
-mv -f configure.ac   configure.tmp
-sed configure.tmp > configure.ac -e \
-	"s|(mat2cpp, [0-9][0-9]-[0-9][0-9]-[0-9][0-9],|(mat2cpp, $Today,|"
-diff configure.ac  configure.tmp
+sed -i configure.ac \
+	-e "s|AC_INIT(mat2cpp, [0-9]\{8\},|AC_INIT(mat2cpp, $Today,|"
 #
-mv -f mat2cpp.omh mat2cpp.tmp
-sed < mat2cpp.tmp > mat2cpp.omh \
-	-e "s|mat2cpp-[0-9][0-9]-[0-9][0-9]-[0-9][0-9]|mat2cpp-$Today|"
-diff mat2cpp.omh  mat2cpp.tmp 
+sed -i mat2cpp.omh \
+	-e "s|mat2cpp-[0-9]\{8\}|mat2cpp-$Today|"
 #
 echo "autoreconf --force --install"
 autoreconf --force --install
