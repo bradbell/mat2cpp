@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash 
 # ----------------------------------------------------------------
 boost_dir=/usr/include # location of boost directory on this machine
 prefix=/usr/local      # prefix for installation
