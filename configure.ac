@@ -1,5 +1,5 @@
 dnl     package,          version,  bugreport
-AC_INIT(mat2cpp, 20110524, bradbell@apl.washington.edu)
+AC_INIT(mat2cpp, 20110525, bradbell@apl.washington.edu)
 
 dnl The directory corresponding to the installation of BOOST ------------
 AC_MSG_CHECKING( [BOOST_DIR] )
@@ -8,6 +8,15 @@ if test "$BOOST_DIR" != "" ; then
 	AC_MSG_RESULT( [ BOOST_DIR=$BOOST_DIR ] )
 else
 	AC_MSG_ERROR( [ BOOST_DIR=$BOOST_DIR ] )
+fi
+
+dnl The directory corresponding to the installation of CPPAD ------------
+AC_MSG_CHECKING( [CPPAD_DIR] )
+AC_SUBST(CPPAD_DIR)
+if test "$CPPAD_DIR" != "" ; then
+	AC_MSG_RESULT( [ CPPAD_DIR=$CPPAD_DIR ] )
+else
+	AC_MSG_ERROR( [ CPPAD_DIR=$CPPAD_DIR ] )
 fi
 
 dnl The C++ error and warning flags for every compliation ---------------

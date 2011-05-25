@@ -2,6 +2,7 @@
 AM_CPPFLAGS         = \
 	-I$(top_srcdir) \
 	-I$(BOOST_DIR) \
+	-I$(CPPAD_DIR) \
 	$(COMPILE_FLAGS)
 #
 AM_CXXFLAGS         = \

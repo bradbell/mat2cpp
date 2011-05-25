@@ -1,13 +1,14 @@
-#!/bin/bash
+#! /bin/bash -e
+brad_home_page="http://www.seanet.com/~bradbell/home.htm"
 if [ -e doc ]
 then
 	rm -r doc
 fi
 mkdir doc
 cd doc
-if ! omhelp ../mat2cpp.omh -xml -debug
+if ! omhelp ../mat2cpp.omh -xml -debug -image_link "$brad_home_page"
 then
 	echo "aborting (see OMhelp error message above)"
 	exit
 fi
-omhelp ../mat2cpp.omh -debug
+omhelp ../mat2cpp.omh -debug -image_link "$brad_home_page"

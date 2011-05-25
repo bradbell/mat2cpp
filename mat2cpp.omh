@@ -1,5 +1,6 @@
 $begin mat2cpp$$
 $spell
+	cppad
 	dir
 	llapack
 	lmat2cpp
@@ -28,28 +29,28 @@ $href%http://www.boost.org/libs/numeric/ublas/doc/overview.htm%ublas%$$.
 $head Test and Install$$
 $list number$$
 Download the file
-$href%mat2cpp-20110524.tar.gz%$$.
+$href%mat2cpp-20110525.tar.gz%$$.
 
 $lnext
-Extract the distribution in to the $code mat2cpp-20110524$$ subdirectory
+Extract the distribution in to the $code mat2cpp-20110525$$ subdirectory
 with the command
 $codep
-	tar -xvzf mat2cpp-20110524.tar.gz
+	tar -xvzf mat2cpp-20110525.tar.gz
 $$
 
 $lnext
 Build the library and test program with the command
-$syntax%
-	cd mat2cpp-20110524
-	./configure --prefix=%prefix_dir% BOOST_DIR=%boost_dir%
+$codei%
+	cd mat2cpp-20110525
+	./configure \
+		--prefix=%prefix_dir% \
+		BOOST_DIR=%boost_dir% \
+		CPPAD_DIR=%cppad_dir%
 	make
 %$$
-where $italic prefix$$ is the prefix for this installation
-and $italic boost_dir$$ is the directory where the file
-$syntax%
-	%boost_dir%/boost/numeric/ublas/matrix.hpp
-%$$
-is located.
+where $icode prefix$$ is the prefix for this installation,
+$icode boost_dir$$ prefix for the existing $code boost$$ install,
+and $icode cppad_dir$$ is the prefix for the existing $code cppad$$ install.
 
 
 $lnext
@@ -88,8 +89,8 @@ $$
 (note you will have to entry the root password for the su command).
 
 $lnext 
-Compile and run the $xref/getstarted/$$ example with the following commands:
-$syntax%
+Compile and run the $cref/getstarted/$$ example with the following commands:
+$codei%
 	cd cpp
 	g++ getstarted.cpp -o getstarted \
 		-I%boost_dir% -L%prefix_dir%/lib -lmat2cpp -llapack
@@ -105,7 +106,7 @@ $lend
 $head mat2cpp.hpp$$
 $index library, mat2cpp$$
 $index link, mat2cpp$$
-The include file $xref/mat2cpp.hpp/$$ includes the 
+The include file $cref/mat2cpp.hpp/$$ includes the 
 $href%http://www.boost.org/libs/numeric/ublas/doc/index.htm%C++%$$
 header file
 $href%http://www.boost.org/libs/numeric/ublas/doc/matrix.htm%matrix.hpp%$$.

@@ -1,6 +1,7 @@
 /*
 $begin cholesky.cpp$$
 $spell
+	config.h
 	cholesky
 	uplo
 	dpotrf

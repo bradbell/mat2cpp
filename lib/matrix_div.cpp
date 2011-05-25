@@ -1,6 +1,7 @@
 /*
 $begin matrix_div.cpp$$
 $spell
+	config.h
 	cpp
 	C++
 	Lapack

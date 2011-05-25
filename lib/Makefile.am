@@ -1,5 +1,5 @@
 #
-AM_CPPFLAGS          = -I$(top_builddir) -I$(BOOST_DIR)
+AM_CPPFLAGS          = -I$(top_builddir) -I$(BOOST_DIR) -I$(CPPAD_DIR)
 AM_CXXFLAGS          = -g
 #
 lib_LIBRARIES        = libmat2cpp.a
