@@ -1,5 +1,5 @@
 dnl     package,          version,  bugreport
-AC_INIT(mat2cpp, 20100122, bradbell@apl.washington.edu)
+AC_INIT(mat2cpp, 20110524, bradbell@apl.washington.edu)
 
 dnl The directory corresponding to the installation of BOOST ------------
 AC_MSG_CHECKING( [BOOST_DIR] )
