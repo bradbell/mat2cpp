@@ -1,6 +1,6 @@
 $begin mat2cpp$$
+$escape $$
 $spell
-	cppad
 	dir
 	llapack
 	lmat2cpp
@@ -29,28 +29,25 @@ $href%http://www.boost.org/libs/numeric/ublas/doc/overview.htm%ublas%$$.
 $head Test and Install$$
 $list number$$
 Download the file
-$href%mat2cpp-20110525.tar.gz%$$.
+$href%mat2cpp-20110811.tar.gz%$$.
 
 $lnext
-Extract the distribution in to the $code mat2cpp-20110525$$ subdirectory
+Extract the distribution in to the $code mat2cpp-20110811$$ subdirectory
 with the command
 $codep
-	tar -xvzf mat2cpp-20110525.tar.gz
+	tar -xvzf mat2cpp-20110811.tar.gz
 $$
 
 $lnext
 Build the library and test program with the command
 $codei%
-	cd mat2cpp-20110525
-	./configure \
-		--prefix=%prefix_dir% \
-		BOOST_DIR=%boost_dir% \
-		CPPAD_DIR=%cppad_dir%
+	cd mat2cpp-20110811
+	./configure --prefix=%prefix_dir% BOOST_DIR=%boost_dir% 
 	make
 %$$
-where $icode prefix$$ is the prefix for this installation,
-$icode boost_dir$$ prefix for the existing $code boost$$ install,
-and $icode cppad_dir$$ is the prefix for the existing $code cppad$$ install.
+where $icode prefix$$ is the prefix for this installation and
+$icode boost_dir$$ prefix for the existing $code boost$$ install
+(check that the directory $icode%boost_dir%/include/boost%$$ exists).
 
 
 $lnext
@@ -93,7 +90,10 @@ Compile and run the $cref/getstarted/$$ example with the following commands:
 $codei%
 	cd cpp
 	g++ getstarted.cpp -o getstarted \
-		-I%boost_dir% -L%prefix_dir%/lib -lmat2cpp -llapack
+		-I%boost_dir%/include \
+	 	-I%prefix_dir%/include \
+		-L%prefix_dir%/lib \
+		-lmat2cpp -llapack
 	./getstarted
 %$$
 $lend

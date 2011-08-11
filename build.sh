@@ -1,7 +1,6 @@
 #! /bin/bash -e
 # ----------------------------------------------------------------
 boost_dir=/usr/include        # prefix for boost on this machine
-cppad_dir=$HoME/prefix/cppad  # prefix for boost on this machine
 prefix=$HOME/prefix/mat2cpp   # prefix for installation
 # ----------------------------------------------------------------
 #
@@ -41,13 +40,11 @@ cat << EOF
 ./configure  \
 	--prefix=$prefix \
 	BOOST_DIR=$boost_dir \
-	CPPAD_DIR=$cppad_dir \
 	COMPILE_FLAGS="$compile_flags"
 EOF
 ./configure  \
 	--prefix=$prefix \
 	BOOST_DIR=$boost_dir \
-	CPPAD_DIR=$cppad_dir \
 	COMPILE_FLAGS="$compile_flags"
 #
 echo "make"
@@ -76,14 +73,12 @@ cat << EOF
 ./configure  \\
 	--prefix=$prefix \\
 	BOOST_DIR=$boost_dir \\
-	CPPAD_DIR=$cppad_dir \
 	COMPILE_FLAGS="$compile_flags"
 EOF
 #
 ./configure  \
 	--prefix=$prefix \
 	BOOST_DIR=$boost_dir \
-	CPPAD_DIR=$cppad_dir \
 	COMPILE_FLAGS="$compile_flags"
 #
 echo "make"

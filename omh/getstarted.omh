@@ -32,8 +32,8 @@ $latex \[
 \end{array} \right)
 =
 \left( \begin{array}{cc}
-	3 \\
-	4 
+	1 \\
+	2 
 \end{array} \right)
 \] $$
 
@@ -41,7 +41,7 @@ $head Matlab or Octave Solution$$
 
 $subhead Program$$
 $code
-$comment%mat/getstarted.m%$$
+$verbatim%mat/getstarted.m%$$
 $$
 
 $subhead Output$$
@@ -77,8 +77,8 @@ include file is installed
 $subhead Output$$
 $index output, matrix$$
 $index matrix, output$$
-$code
-$comment%getstarted.out%$$
+$codep
+x =[2,1]((0),(0.5))
 $$
 
 

@@ -12,4 +12,4 @@ EXTRA_DIST = \
 	mat
 #
 dist-hook:
-	rm -rf `find $(distdir) -name *.scc`
+	rm -rf `find $(distdir) -name .svn`
