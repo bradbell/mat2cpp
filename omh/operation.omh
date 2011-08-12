@@ -1,8 +1,8 @@
 $begin operation$$
 
+$section Operations That Have Conversions$$
 
-$section Elementary Operations$$
-
+$head Grouped by Type$$
 $childtable%
 	omh/elementwise.omh%
 	omh/matrixwise.omh%
@@ -10,5 +10,30 @@ $childtable%
 	omh/other.omh
 %$$
 
+$head Alphabetical Order$$
+$table
+$rref add$$
+$rref cholesky$$
+$rref diag_prod$$
+$rref element_div$$
+$rref element_prod$$
+$rref element_unary$$
+$rref extend$$
+$rref matrix_div$$
+$rref matrix_prod$$
+$rref max$$
+$rref min$$
+$rref ones$$
+$rref rand$$
+$rref randn$$
+$rref scalar_div$$
+$rref scalar_prod$$
+$rref size$$
+$rref slice$$
+$rref sub$$
+$rref sum$$
+$rref transpose$$
+$rref zeros$$
+$tend
 
 $end
