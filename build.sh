@@ -97,7 +97,7 @@ then
 fi
 file=doc/mat2cpp-$Today.tar.gz
 remote_machine='moby'
-remote_directory='/var/www.html/bradbell'
+remote_directory='/var/www/html/bradbell'
 if [ ! -e "$file" ]
 then
 	echo "The file $file is missing"
