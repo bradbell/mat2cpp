@@ -96,6 +96,8 @@ then
 	exit 1
 fi
 file=doc/mat2cpp-$Today.tar.gz
+remote_machine='moby'
+remote_directory='/var/www.html/bradbell'
 if [ ! -e "$file" ]
 then
 	echo "The file $file is missing"
@@ -104,20 +106,17 @@ fi
 echo "tar -czf doc.tgz doc"
 tar -czf doc.tgz doc
 #
-echo "ssh.sh snark -p doc.tgz"
-ssh.sh snark -p doc.tgz
+echo "ssh.sh $remote_machine -p doc.tgz"
+ssh.sh $remote_machine -p doc.tgz
 #
 cat << EOF
 ------------------------------
 Enter the following commands: 
-	ssh.sh snark -l
+	ssh.sh $remote_machine -l
 	rm -rf doc
 	tar -xzf doc.tgz
-	cd doc
-	sftp svn:packages/mat2cpp
-	rm *
-	put *
-	quit
+	rm -r $remote_directory/mat2cpp
+	cp -r doc $remote_directory/mat2cpp
 	exit
 ------------------------------
 EOF

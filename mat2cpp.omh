@@ -29,19 +29,19 @@ $href%http://www.boost.org/libs/numeric/ublas/doc/overview.htm%ublas%$$.
 $head Test and Install$$
 $list number$$
 Download the file
-$href%mat2cpp-20110812.tar.gz%$$.
+$href%mat2cpp-20120506.tar.gz%$$.
 
 $lnext
-Extract the distribution in to the $code mat2cpp-20110812$$ subdirectory
+Extract the distribution in to the $code mat2cpp-20120506$$ subdirectory
 with the command
 $codep
-	tar -xvzf mat2cpp-20110812.tar.gz
+	tar -xvzf mat2cpp-20120506.tar.gz
 $$
 
 $lnext
 Build the library and test program with the command
 $codei%
-	cd mat2cpp-20110812
+	cd mat2cpp-20120506
 	./configure --prefix=%prefix_dir% BOOST_DIR=%boost_dir% 
 	make
 %$$
