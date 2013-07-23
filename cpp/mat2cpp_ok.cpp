@@ -91,7 +91,8 @@ int main()
 	ok   = ok & run_test(zeros_ok, "zeros_ok");
 	//
 	// do this test last because it tests setting the seed
-	ok   = ok & run_test(mztuni_ok, "mztuni_ok");
+	if( ok )
+		ok   = ok & run_test(mztuni_ok, "mztuni_ok");
 	std::cout << std::endl;
 	if( ok )
 		std::cout << "All tests passed" << std::endl;
