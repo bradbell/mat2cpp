@@ -3,6 +3,7 @@ $begin rand$$
 $index rand, matrix$$
 $index matrix, rand$$
 $spell
+	mztuni
 	ublas
 	std
 	srand
@@ -44,12 +45,21 @@ $syntax%
 where $italic m$$ and $italic n$$ are $code size_t$$ values
 and $italic x$$ is an $latex m \times n$$ 
 ublas $code matrix<double>$$ object.
-You must first call the standard library function
+
+$subhead std::rand$$
+If you want to use $code std::rand$$ to generate the random values,
+you must first call the standard library function
 $syntax%
 	std::srand(%seed%)
 %$$
 where $italic seed$$ is an $code unsigned int$$
-to initialize the random number generator $code std::rand()$$.
+to initialize the random number generator.
+
+$subhead mztuni$$
+If there is a previous call of the form
+$cref/mztuni(seed)/mztuni/seed/$$ with $icode%seed% > 1%$$,
+the $cref mztuni$$ random number generator will be used
+(instead of $code std::rand$$).
 
 $subhead Example$$
 $code

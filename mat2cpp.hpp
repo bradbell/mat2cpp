@@ -1,5 +1,5 @@
-# ifndef MAT_CPP_INCLUDED
-# define MAT_CPP_INCLUDED
+# ifndef MAT2CPP_INCLUDED
+# define MAT2CPP_INCLUDED
 /*
 $begin mat2cpp.hpp$$
 $spell

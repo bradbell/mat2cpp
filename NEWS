@@ -5,6 +5,13 @@ $$
 
 $section The mat2cpp News file$$
 
+$head 2013-07-20$$
+Added the $cref mztuni$$ function so that random number generation
+was repeatable on different machines.
+In addition, seeded the random numbers off the clock
+so that a different test is run each time (but can be reproduced
+in the case of an error).
+
 $head 06-05-15$$
 Added $xref/randn/$$ library routine.
 Also added the section $tref library$$ to the documentation.

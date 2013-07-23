@@ -1,6 +1,10 @@
 /*
 $begin mat2cpp_ok.cpp$$ 
 $spell
+	hpp
+	ctime
+	ptr
+	mztuni
 	const
 	randn
 	cholesky
@@ -20,6 +24,7 @@ $section Run C++ Version of Examples$$
 $codep */
 # include <iostream>
 # include <cstdlib>
+# include <mztuni.hpp>
 
 extern bool add_ok(void);
 extern bool cholesky_ok(void);
@@ -32,6 +37,7 @@ extern bool matrix_div_ok(void);
 extern bool matrix_prod_ok(void);
 extern bool max_ok(void);
 extern bool min_ok(void);
+extern bool mztuni_ok(void);
 extern bool ones_ok(void);
 extern bool rand_ok(void);
 extern bool randn_ok(void);
@@ -54,10 +60,10 @@ bool run_test(bool test(void), const char *name)
 }
 int main()
 {	bool ok   = true;
-	
-	// initialize the random number generator
-	unsigned seed = 5;
-	std::srand(seed);
+
+	// initialize the random number generator using the clock for a seed
+	mztuni_seed(1);
+	ok &= mztuni_seed(0) != 0;
 
 	// run all the tests
 	ok   = ok & run_test(add_ok, "add_ok");
@@ -83,10 +89,16 @@ int main()
 	ok   = ok & run_test(sum_ok, "sum_ok");
 	ok   = ok & run_test(transpose_ok, "transpose_ok");
 	ok   = ok & run_test(zeros_ok, "zeros_ok");
+	//
+	// do this test last because it tests setting the seed
+	ok   = ok & run_test(mztuni_ok, "mztuni_ok");
 	std::cout << std::endl;
 	if( ok )
 		std::cout << "All tests passed" << std::endl;
-	else	std::cout << "At least one test failed" << std::endl;
+	else
+	{	std::cout << "At least one test failed" << std::endl;
+		std::cout << "mztuni_seed = " << mztuni_seed(0) << std::endl;
+	}
 	int error = ! ok;
 	return error;
 }

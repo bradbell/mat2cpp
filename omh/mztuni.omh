@@ -1,0 +1,110 @@
+$begin mztuni$$
+$spell
+	hpp
+	cpp
+	namespace
+	Marsaglia
+	Zaman
+	Tsang
+	mztuni
+	uni
+$$
+$index random, uniform generator$$
+$index uniform, random generator$$
+$index generator, uniform random$$
+
+$section C++ Marsaglia Zaman Tsang Uniform Random Number Generator$$
+
+$head Syntax$$
+$codei%include <mztuni.hpp>
+%$$
+$icode%s% = mztuni_seed(%seed%)
+%$$
+$icode%u% = mztuni()%$$
+
+$head Purpose$$
+This C++ random number generator is portable; to be specific
+the same seed gives same results for different computers.
+In addition, it is easy to implement and thereby avoids having to link
+in a large random number library; see
+$cref mztuni.cpp$$.
+
+$head Reference$$
+G. Marsaglia, A. Zaman, and W.W. Tsang,
+Toward a universal random number generator,
+Statistics & Probability Letters,
+Volume 8,
+pages 35-39,
+1990.
+
+$head include$$
+Because it can be used without the rest of $code mat2cpp$$, this routine 
+is not in the $code mat2cpp$$ namespace and has its own include file.
+The $code include$$ statement above is
+
+$head seed$$
+
+$subhead seed >= 2$$
+The argument $icode seed$$ has prototype
+$codei%
+	size_t %seed%
+%$$
+and is used to seed the random number generator.
+The function call
+$codei%
+	CALL RSTART(%I%, %J%, %K%, %L%)
+%$$
+in the reference above corresponds to
+$codei%
+	%seed% = (((%L%-1)*168 + %K%-1)*168 + %J%-1)*168 + %I% + 1
+%$$
+Note the restriction that $icode I$$, $icode J$$, $icode K$$ and $icode L$$
+are between $code 1$$ and $code 168$$ and not all equal to $code 1$$; i.e.,
+$codei%
+	3 <= %seed% <= 796594177
+%$$
+
+$subhead seed == 1$$
+If the special case where $icode seed$$ is equal to one,
+the current time is used to choose the actual seed between three
+and 796594177.
+This actual seed is then used to seed the random number generator.
+
+$subhead seed == 0$$
+In the special case where $icode seed$$ is equal to zero,
+no action is taken.
+This case is useful for retrieving the previous seed used
+to seed the random number generator.
+
+
+$head s$$
+The return value $icode s$$ has prototype
+$codei%
+	size_t %s%
+%$$
+It is the previous seed that was used to seed the random number generator.
+If $icode seed > 0$$,
+the $icode s$$ corresponds to this call to $code mztuni_seed$$.
+
+$head u$$
+The return value $icode u$$ has prototype
+$codei%
+	double %u%
+%$$
+It is sample of a random variable that is uniformly distributed between
+the values zero and one.
+
+$children%
+	cpp/mztuni_ok.cpp%
+	lib/mztuni.cpp
+%$$
+$head Example$$
+The file $cref mztuni_ok.cpp$$
+contains an example and test of this routine.
+It returns true if it succeeds and false otherwise.
+
+$subhead Source$$
+The file $cref mztuni.cpp$$ contains the 
+C++ source code that implements $code mztuni$$.
+
+$end

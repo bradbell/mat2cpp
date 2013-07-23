@@ -23,6 +23,7 @@ mat2cpp_ok_SOURCES  = \
 	matrix_prod_ok.cpp \
 	max_ok.cpp \
 	min_ok.cpp \
+	mztuni_ok.cpp \
 	ones_ok.cpp \
 	rand_ok.cpp \
 	randn_ok.cpp \

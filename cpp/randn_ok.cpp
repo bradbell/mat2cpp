@@ -8,8 +8,6 @@ bool randn_ok(void)
 
 	size_t i, j, m(10), n(11);
 	// ---------------------------
-	unsigned int seed = 5;
-	std::srand(seed);
 	matrix<double> x = randn(m, n);
 	// ---------------------------
 	ok &= (x.size1() == m);

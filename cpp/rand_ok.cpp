@@ -7,8 +7,6 @@ bool rand_ok(void)
 
 	size_t i, j, m(2), n(3);
 	// ---------------------------
-	unsigned int seed = 5;
-	std::srand(seed);
 	matrix<double> x = rand(m, n);
 	// ---------------------------
 	ok &= (x.size1() == m);

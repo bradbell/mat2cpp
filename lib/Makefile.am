@@ -14,5 +14,6 @@ libmat2cpp_a_SOURCES = \
 	scalar.cpp \
 	sum.cpp \
 	rand.cpp \
+	mztuni.cpp \
 	randn.cpp 
 
