@@ -9,9 +9,10 @@ $spell
 	mztuni
 	uni
 $$
-$index random, uniform generator$$
-$index uniform, random generator$$
-$index generator, uniform random$$
+$index C++, uniform random number generator$$
+$index random, C++ uniform generator$$
+$index uniform, C++ random generator$$
+$index generator, C++ uniform random$$
 
 $section C++ Marsaglia Zaman Tsang Uniform Random Number Generator$$
 
@@ -30,6 +31,9 @@ in a large random number library; see
 $cref mztuni.cpp$$.
 
 $head Reference$$
+$index Marsaglia$$
+$index Zaman$$
+$index Tsang$$
 G. Marsaglia, A. Zaman, and W.W. Tsang,
 Toward a universal random number generator,
 Statistics & Probability Letters,
@@ -37,10 +41,25 @@ Volume 8,
 pages 35-39,
 1990.
 
+$subhead Typo$$
+$index typo$$
+The Fortran version in Table 2 of the reference above contains the following
+line of code:
+$codep
+	CD = 7654321./167777216.
+$$
+Using this value in $code mztuni$$
+does not produce the values in Table 4 of the reference.
+Replacing the value above
+by the value below does produce the values in Table 4:
+$codep
+	CD = 7654321./16777216.
+$$
+
+
 $head include$$
 Because it can be used without the rest of $code mat2cpp$$, this routine 
 is not in the $code mat2cpp$$ namespace and has its own include file.
-The $code include$$ statement above is
 
 $head seed$$
 

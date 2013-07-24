@@ -6,7 +6,7 @@ bool randn_ok(void)
 {	bool   ok  = true;
 	using namespace mat2cpp;
 
-	size_t i, j, m(10), n(11);
+	size_t i, j, m(20), n(21);
 	// ---------------------------
 	matrix<double> x = randn(m, n);
 	// ---------------------------

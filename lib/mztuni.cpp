@@ -88,8 +88,8 @@ double mztuni(size_t seedm1)
 			}
 		     u[ii] = s;
 		}
-		// There seems to be a typo in the paper, where
-		// cd =  7654321. / 167777216.;
+		// There is a typo in the paper, where the fortran version has
+		// CD =  7654321. / 167777216.;
 		c  =   362436. / 16777216.;
 		cd =  7654321. / 16777216.;
 		cm = 16777213. / 16777216.;
