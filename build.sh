@@ -50,8 +50,8 @@ EOF
 echo "make"
 make 
 #
-echo "./RunOMhelp"
-./RunOMhelp
+echo "./run_omhelp.sh"
+./run_omhelp.sh
 #
 echo "make dist"
 make dist

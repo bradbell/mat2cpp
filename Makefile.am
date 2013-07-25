@@ -5,7 +5,7 @@ include_HEADERS = mat2cpp.hpp mztuni.hpp
 #
 EXTRA_DIST = \
 	build.sh \
-	RunOMhelp \
+	run_omhelp.sh \
 	mat2cpp.omh \
 	doc \
 	omh \

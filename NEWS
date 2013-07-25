@@ -1,14 +1,15 @@
 $begin News$$
 $spell
 	cpp
+	randn
 $$
 
 $section The mat2cpp News file$$
 
 $head 2013-07-25$$
 Use 3 standard deviations, instead of two, when checking results
-in $cref randn_ok.cpp$$ (because two standard deviations
-was failing to often).
+in $cref/randn C++ example/randn/C++/Example/$$ 
+(because two standard deviations was failing to often).
 
 $head 2013-07-20$$
 Added the $cref mztuni$$ function so that random number generation
