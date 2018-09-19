@@ -1,5 +1,5 @@
 dnl     package,          version,  bugreport
-AC_INIT(mat2cpp, 20130725, bradbell@apl.washington.edu)
+AC_INIT(mat2cpp, 20180919, bradbell@apl.washington.edu)
 
 dnl The directory corresponding to the installation of BOOST ------------
 AC_MSG_CHECKING( [BOOST_DIR] )
@@ -15,10 +15,10 @@ AC_MSG_CHECKING( [COMPILE_FLAGS] )
 AC_SUBST(COMPILE_FLAGS)
 AM_CONDITIONAL(mat2cpp_COMPILE_FLAGS, test "$COMPILE_FLAGS" != "" )
 if test "$COMPILE_FLAGS" != "" ; then
-	AC_MSG_RESULT( [COMPILE_FLAGS=$COMPILE_FLAGS] ) 
+	AC_MSG_RESULT( [COMPILE_FLAGS=$COMPILE_FLAGS] )
 else
 	AC_MSG_RESULT( [no] )
-fi 
+fi
 
 dnl Run any macros required for proper operation of generated Makefiles
 dnl nostdinc: Do not define standard include directories in generated Makefiles
@@ -41,12 +41,12 @@ AC_F77_WRAPPERS
 dnl Determine if ranlib is present and where it is if present (set RANLIB)
 AC_PROG_RANLIB
 
-dnl Have configure check distribution directory 
+dnl Have configure check distribution directory
 AC_CONFIG_SRCDIR([mat2cpp.omh])
 
-dnl AC_CONFIG_FILES(file-list) for each file in the list, configure will 
+dnl AC_CONFIG_FILES(file-list) for each file in the list, configure will
 dnl read file.in, do its substitutions, and create file
-AC_CONFIG_FILES([ 
+AC_CONFIG_FILES([
 	Makefile
 	lib/Makefile
 	cpp/Makefile

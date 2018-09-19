@@ -1,5 +1,5 @@
 #
-SUBDIRS = lib cpp 
+SUBDIRS = lib cpp
 #
 include_HEADERS = mat2cpp.hpp mztuni.hpp
 #
@@ -12,4 +12,4 @@ EXTRA_DIST = \
 	mat
 #
 dist-hook:
-	rm -rf `find $(distdir) -name .svn`
+	rm -rf $(distdir)/.git

@@ -19,7 +19,7 @@ for name in \
 	NEWS \
 	README \
 	AUTHORS \
-	ChangeLog 
+	ChangeLog
 do
 	if [ ! -e $name ]
 	then
@@ -36,22 +36,30 @@ sed -i mat2cpp.omh \
 echo "autoreconf --force --install"
 autoreconf --force --install
 #
+echo "./run_omhelp.sh"
+./run_omhelp.sh
+#
+echo 'cd build'
+if [ ! -e build ]
+then
+	mkdir build
+fi
+cd build
+#
 cat << EOF
-./configure  \
+../configure  \
 	--prefix=$prefix \
 	BOOST_DIR=$boost_dir \
 	COMPILE_FLAGS="$compile_flags"
 EOF
-./configure  \
+../configure  \
 	--prefix=$prefix \
 	BOOST_DIR=$boost_dir \
 	COMPILE_FLAGS="$compile_flags"
 #
 echo "make"
-make 
+make
 #
-echo "./run_omhelp.sh"
-./run_omhelp.sh
 #
 echo "make dist"
 make dist
@@ -61,8 +69,8 @@ then
 	rm mat2cpp-$Today
 fi
 #
-echo "cp mat2cpp-$Today.tar.gz doc/mat2cpp-$Today.tar.gz"
-cp mat2cpp-$Today.tar.gz doc/mat2cpp-$Today.tar.gz
+echo "cp mat2cpp-$Today.tar.gz ../doc/mat2cpp-$Today.tar.gz"
+cp mat2cpp-$Today.tar.gz ../doc/mat2cpp-$Today.tar.gz
 #
 echo "tar -xvzf mat2cpp-$Today.tar.gz"
 tar -xvzf mat2cpp-$Today.tar.gz
@@ -84,41 +92,8 @@ EOF
 echo "make"
 make
 #
-echo "cpp/mat2cpp_ok"
+echo "build/cpp/mat2cpp_ok"
 cpp/mat2cpp_ok
 #
-echo "cd .."
-cd ..
-#
-if [ "$USER" != "bradbell" ]
-then
-	echo "Only Brad Bell can copy a new version to the internet."
-	exit 1
-fi
-file=doc/mat2cpp-$Today.tar.gz
-remote_machine='moby'
-remote_directory='/var/www/moby.ihme.washington.edu/bradbell'
-if [ ! -e "$file" ]
-then
-	echo "The file $file is missing"
-	exit 1
-fi
-echo "tar -czf doc.tgz doc"
-tar -czf doc.tgz doc
-#
-echo "ssh.sh $remote_machine -p doc.tgz"
-ssh.sh $remote_machine -p doc.tgz
-#
-cat << EOF
-------------------------------
-Enter the following commands: 
-	ssh.sh $remote_machine -l
-	rm -rf doc
-	tar -xzf doc.tgz
-	rm -r $remote_directory/mat2cpp
-	cp -r doc $remote_directory/mat2cpp
-	exit
-------------------------------
-EOF
 echo "build.sh: mat2cpp OK"
 exit 0
