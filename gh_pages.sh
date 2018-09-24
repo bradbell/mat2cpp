@@ -30,13 +30,6 @@ mv doc $tmp_doc
 echo "git checkout gh-pages"
 git checkout gh-pages
 #
-# check for case where this is first version of doc in gh-pages branch
-if [ ! -e doc ]
-then
-	mkdir doc
-	first_version='yes'
-fi
-#
 # remove files that are no longer in doc directory
 list=`ls -a doc`
 for file in $list
@@ -66,12 +59,7 @@ list=`git status -s`
 if [ "$list" != '' ]
 then
 	echo 'Currently in the gh-pages branch. The following will commit changes'
-	if [ "$first_version" == 'yes' ]
-	then
-		echo "	git commit -m 'create gh-pages starting at version $version'"
-	else
-		echo "	git commit -m 'update gh-pages to version $version'"
-	fi
+	echo "	git commit -m 'update gh-pages to version $version'"
 fi
 # -----------------------------------------------------------------------------
 echo 'gh_pages.sh: OK'
