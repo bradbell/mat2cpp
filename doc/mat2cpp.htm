@@ -1,0 +1,216 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Example Conversion of Matlab or Octave to C++ using Ublas</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Example Conversion of Matlab or Octave to C++ using Ublas">
+<meta name="keywords" id="keywords" content=" library mat2cpp link ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_mat2cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td>Prev</td><td><a href="_contents.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Purpose</option>
+<option>Test and Install</option>
+<option>mat2cpp.hpp</option>
+<option>Contents</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Example Conversion of Matlab or Octave to C++ using Ublas</big></big></b></center>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+The purpose of this package is to provide an example of converting
+<a href="http://www.mathworks.com/" target="_top"><span style='white-space: nowrap'>Matlab</span></a>
+
+or
+<a href="http://www.gnu.org/software/octave/" target="_top"><span style='white-space: nowrap'>Octave</span></a>
+
+to C++
+with the aid of
+<a href="http://www.boost.org/libs/numeric/ublas/doc/overview.htm" target="_top"><span style='white-space: nowrap'>ublas</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Test and Install" id="Test and Install">Test and Install</a></big></b>
+
+<ol type="1"><li>
+Download the file
+<a href="mat2cpp-20180924.tar.gz" target="_top"><span style='white-space: nowrap'>mat2cpp-20180924.tar.gz</span></a>
+.
+
+</li><li>
+
+Extract the distribution in to the <code><font color="blue">mat2cpp-20180924</font></code> subdirectory
+with the command
+<code><font color='blue'><pre style='display:inline'> 
+     tar -xvzf mat2cpp-20180924.tar.gz
+</pre></font></code>
+</li><li>
+Build the library and test program with the command
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;mat2cpp-20180924<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./configure&nbsp;--prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>prefix_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;BOOST_DIR=</span></font><i><font color="black"><span style='white-space: nowrap'>boost_dir</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;make<br>
+</span></font></code>
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>prefix</span></font></i></code>
+ is the prefix for this installation and
+
+<code><i><font color="black"><span style='white-space: nowrap'>boost_dir</span></font></i></code>
+ prefix for the existing <code><font color="blue">boost</font></code> install
+(check that the directory 
+<code><i><font color="black"><span style='white-space: nowrap'>boost_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>/include/boost</span></font></code>
+ exists).
+
+
+</li><li>
+
+Test the installation of the Matlab and Octave files with the commands
+<code><font color='blue'><pre style='display:inline'> 
+     cd mat
+     octave
+     mat2cpp_ok
+     quit
+     cd ..
+</pre></font></code>
+The <code><font color="blue">mat2cpp_ok</font></code> program should have responded
+that all the tests passed
+(you can also run the program in Matlab).
+
+</li><li>
+
+Test the installation of the C++ files with the commands
+<code><font color='blue'><pre style='display:inline'> 
+     cd cpp
+     ./mat2cpp_ok
+     cd ..
+</pre></font></code>
+The <code><font color="blue">mat2cpp_ok</font></code> program should have responded
+that all the tests passed.
+(you can also run the program in Matlab).
+
+
+</li><li>
+
+Install the <code><font color="blue">mat2cpp</font></code> library and include file in the standard locations
+with the following commands
+<code><font color='blue'><pre style='display:inline'> 
+     su
+     make install
+     exit
+</pre></font></code>
+(note you will have to entry the root password for the su command).
+
+</li><li>
+
+Compile and run the <a href="getstarted.htm" target="_top"><span style='white-space: nowrap'>getstarted</span></a>
+ example with the following commands:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;cpp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g++&nbsp;getstarted.cpp&nbsp;-o&nbsp;getstarted&nbsp;\<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I</span></font><i><font color="black"><span style='white-space: nowrap'>boost_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>/include&nbsp;\<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I</span></font><i><font color="black"><span style='white-space: nowrap'>prefix_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>/include&nbsp;\<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-L</span></font><i><font color="black"><span style='white-space: nowrap'>prefix_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>/lib&nbsp;\<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-lmat2cpp&nbsp;-llapack<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./getstarted<br>
+</span></font></code>
+</li></ol>
+<br>
+<b><big><a name="mat2cpp.hpp" id="mat2cpp.hpp">mat2cpp.hpp</a></big></b>
+
+
+<br>
+The include file <a href="mat2cpp.hpp.htm" target="_top"><span style='white-space: nowrap'>mat2cpp.hpp</span></a>
+ includes the
+<a href="http://www.boost.org/libs/numeric/ublas/doc/index.htm" target="_top"><span style='white-space: nowrap'>C++</span></a>
+
+header file
+<a href="http://www.boost.org/libs/numeric/ublas/doc/matrix.htm" target="_top"><span style='white-space: nowrap'>matrix.hpp</span></a>
+.
+It then declares some library routines for that aid in converting
+from the Matlab or Octave languages to C++.
+
+
+<br>
+<br>
+<b><big><a name="Contents" id="Contents">Contents</a></big></b>
+<br>
+<div><a href="_contents.htm" target="_top">Table&nbsp;of&nbsp;Contents</a><br>
+<a href="license.htm" target="_top">The&nbsp;mat2cpp&nbsp;Software&nbsp;License</a><br>
+<a href="getstarted.htm" target="_top">Getting&nbsp;Started</a><br>
+<a href="operation.htm" target="_top">Operations&nbsp;That&nbsp;Have&nbsp;Conversions</a><br>
+<a href="mat2cpp.hpp.htm" target="_top">The&nbsp;Matlab&nbsp;or&nbsp;Octave&nbsp;to&nbsp;C++&nbsp;Using&nbsp;Ublas&nbsp;Include&nbsp;File</a><br>
+<a href="mat2cpp_ok.m.htm" target="_top">Run&nbsp;Matlab&nbsp;or&nbsp;Octave&nbsp;Version&nbsp;of&nbsp;Examples</a><br>
+<a href="mat2cpp_ok.cpp.htm" target="_top">Run&nbsp;C++&nbsp;Version&nbsp;of&nbsp;Examples</a><br>
+<a href="news.htm" target="_top">The&nbsp;mat2cpp&nbsp;News&nbsp;file</a><br>
+<a href="library.htm" target="_top">Adding&nbsp;a&nbsp;New&nbsp;Routine&nbsp;to&nbsp;the&nbsp;Mat2cpp&nbsp;Library</a><br>
+<a href="mztuni.htm" target="_top">C++&nbsp;Marsaglia&nbsp;Zaman&nbsp;Tsang&nbsp;Uniform&nbsp;Random&nbsp;Number&nbsp;Generator</a><br>
+<a href="_reference.htm" target="_top">Alphabetic&nbsp;Listing&nbsp;of&nbsp;Cross&nbsp;Reference&nbsp;Tags</a><br>
+<a href="_index.htm" target="_top">Keyword&nbsp;Index</a><br>
+<a href="_search.htm" target="_top">Search&nbsp;This&nbsp;Web&nbsp;Site</a><br>
+<a href="_external.htm" target="_top">External&nbsp;Internet&nbsp;References</a><br>
+</div>
+<hr>Input File: doc.omh
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Cholesky Factor a Matrix Division</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Cholesky Factor a Matrix Division">
+<meta name="keywords" id="keywords" content=" cholesky matrix ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_cholesky_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="diag_prod.cpp.htm" target="_top">Prev</a>
+</td><td><a href="cholesky.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>matrixwise</option>
+<option>cholesky</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>matrixwise-&gt;</option>
+<option>diag_prod</option>
+<option>cholesky</option>
+<option>matrix_div</option>
+<option>matrix_prod</option>
+<option>transpose</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>cholesky-&gt;</option>
+<option>cholesky.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Matlab or Octave</option>
+<option>---..Example</option>
+<option>C++</option>
+<option>---..Example</option>
+<option>---..Source</option>
+</select>
+</td>
+</tr></table><br>
+<small>@(@
+\newcommand{\T}{{\rm T}}
+@)@</small><center><b><big><big>Cholesky Factor a Matrix Division</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<b>Matlab or Octave</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"><span style='white-space: nowrap'>[</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>]&nbsp;=&nbsp;chol(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr><tr><td align='left'  valign='top'>
+
+<b>C++</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;cholesky(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr>
+</table>
+<br>
+<b><big><a name="Matlab or Octave" id="Matlab or Octave">Matlab or Octave</a></big></b>
+<br>
+If <i>x</i> is an <small>@(@
+m  \times m
+@)@</small> matrix
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;chol(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>sets <i>z</i> to the 
+upper triangular <small>@(@
+m \times m
+@)@</small> matrix such that
+<small>@[@
+
+	 x = y^\T * y
+
+@]@</small>
+If <i>r</i> is not zero, then the matrix <i>x</i>
+is singular and <i>r</i> is the rank of the largest non-singular
+principal minor.
+
+<br>
+<br>
+<big><a name="Matlab or Octave.Example" id="Matlab or Octave.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     function [ok] = cholesky_ok()
+     ok  = true;
+     m   = 3;
+     a   = rand(m, m);
+     x   = a' * a; 
+     % -------------
+     [y, r]  = chol(x);
+     % -------------
+     [m, n] = size(y);
+     ok     = ok &amp; (m == 3);
+     ok     = ok &amp; (n == 3);
+     ok     = ok &amp; all ( all( abs(y' * y - x) &lt; 1e-10 ) );
+     for i = 1 : m
+     	for j = 1 : (i-1)
+     		ok = ok &amp; (y(i,j) == 0);
+     	end
+     end
+     ok     = ok &amp; (r == 0);
+     return 
+</pre><br>
+</font></code><br>
+<b><big><a name="C++" id="C++">C++</a></big></b>
+<br>
+The corresponding C++ syntax is
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;cholesky(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>rank</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>where <i>x</i> and <i>y</i> are 
+ublas <code><font color="blue">matrix&lt;double&gt;</font></code> objects. 
+The size of <i>x</i> and <i>y</i> are <small>@(@
+m \times m
+@)@</small>,
+The return value of the <code><font color="blue">size_t</font></code> argument <i>rank</i> is the rank
+of the largest principal minor of <i>x</i>.
+
+<br>
+<br>
+<big><a name="C++.Example" id="C++.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     # include &lt;boost/numeric/ublas/matrix.hpp&gt;
+     # include &lt;mat2cpp.hpp&gt;
+     bool cholesky_ok(void)
+     {	bool   ok  = true;
+     	using namespace mat2cpp;
+     
+     	size_t i, j, m(3);
+     	matrix&lt;double&gt; a = rand(m, m);
+     	matrix&lt;double&gt; x = prod(trans(a), a);
+     	// ---------------------------------------
+     	size_t rank;
+     	matrix&lt;double&gt; y = cholesky(x, rank);
+     	// ---------------------------------------
+     	ok &amp;= (rank      == m);
+     	ok &amp;= (y.size1() == m);
+     	ok &amp;= (y.size2() == m);
+     	matrix&lt;double&gt; check = prod(trans(y), y);
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; m; j++)
+     			ok &amp;= std::fabs( check(i, j) - x(i,j) ) &lt; 1e-10;
+     	}
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; i; j++)
+     			ok &amp;= (y(i, j) == 0.); 
+     	}
+     	return ok;
+     }
+</pre><br>
+</font></code><br>
+<big><a name="C++.Source" id="C++.Source">Source</a></big>
+<br>
+The file <a href="cholesky.cpp.htm" target="_top"><span style='white-space: nowrap'>cholesky.cpp</span></a>
+ contains the 
+C++ source code for these functions.
+
+
+<hr>Input File: omh/cholesky.omh
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Matrix Transpose</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Matrix Transpose">
+<meta name="keywords" id="keywords" content=" transpose ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_transpose_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="matrix_prod.htm" target="_top">Prev</a>
+</td><td><a href="scalar_valued.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>matrixwise</option>
+<option>transpose</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>matrixwise-&gt;</option>
+<option>diag_prod</option>
+<option>cholesky</option>
+<option>matrix_div</option>
+<option>matrix_prod</option>
+<option>transpose</option>
+</select>
+</td>
+<td>transpose</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Matlab or Octave</option>
+<option>---..Example</option>
+<option>C++</option>
+<option>---..Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Matrix Transpose</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<b>Matlab or Octave</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>'</span></font></code>
+</td></tr><tr><td align='left'  valign='top'>
+
+<b>C++</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;trans(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr>
+</table>
+<br>
+<b><big><a name="Matlab or Octave" id="Matlab or Octave">Matlab or Octave</a></big></b>
+<br>
+If <i>x</i> is an <small>@(@
+m  \times n
+@)@</small> matrix,
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>'<br>
+</span></font></code>sets <i>y</i> to the <small>@(@
+n \times m
+@)@</small> matrix with
+<small>@[@
+
+	y_{j,i} = x_{i,j}
+
+@]@</small> 
+
+<br>
+<br>
+<big><a name="Matlab or Octave.Example" id="Matlab or Octave.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     function [ok] = transpose_ok()
+     ok  = true;
+     m   = 2;
+     n   = 3;
+     x   = rand(m, n);
+     % -------
+     y   = x';
+     % -------
+     [r, c] = size(y);
+     ok     = ok &amp; (r == n);
+     ok     = ok &amp; (c == m);
+     for i = 1 : m
+     	for j = 1 : n
+     		ok = ok &amp; (y(j, i) == x(i, j));
+     	end
+     end
+     return
+</pre><br>
+</font></code><br>
+<b><big><a name="C++" id="C++">C++</a></big></b>
+<br>
+The corresponding C++ syntax is
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;trans(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>where <i>x</i>  and <i>y</i> are 
+ublas <code><font color="blue">matrix&lt;double&gt;</font></code> objects with sizes
+<small>@(@
+m \times n
+@)@</small> and <small>@(@
+n \times m
+@)@</small> respectively.
+
+<br>
+<br>
+<big><a name="C++.Example" id="C++.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     # include &lt;mat2cpp.hpp&gt;
+     bool transpose_ok(void)
+     {	bool   ok  = true;
+     	using namespace mat2cpp;
+     
+     	size_t i, j, m(2), n(3);
+     	matrix&lt;double&gt; x = rand(m, n);
+     	// -------------------------
+     	matrix&lt;double&gt; y = trans(x);
+     	// -------------------------
+     	ok &amp;= (y.size1() == n);
+     	ok &amp;= (y.size2() == m);
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; n; j++)
+     			ok &amp;= y(j,i) == x(i,j);
+     	}
+     	return ok;
+     }
+</pre><br>
+</font></code>
+<hr>Input File: omh/transpose.omh
+
+</body>
+</html>

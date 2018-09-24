@@ -1,0 +1,221 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Matrix Product</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Matrix Product">
+<meta name="keywords" id="keywords" content=" matrix product multiply times ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_matrix_prod_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="matrix_div.cpp.htm" target="_top">Prev</a>
+</td><td><a href="transpose.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>matrixwise</option>
+<option>matrix_prod</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>matrixwise-&gt;</option>
+<option>diag_prod</option>
+<option>cholesky</option>
+<option>matrix_div</option>
+<option>matrix_prod</option>
+<option>transpose</option>
+</select>
+</td>
+<td>matrix_prod</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Matlab or Octave</option>
+<option>---..Example</option>
+<option>C++</option>
+<option>---..Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Matrix Product</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<b>Matlab or Octave</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;*&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i>
+</td></tr><tr><td align='left'  valign='top'>
+
+<b>C++</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;prod(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr>
+</table>
+<br>
+<b><big><a name="Matlab or Octave" id="Matlab or Octave">Matlab or Octave</a></big></b>
+<br>
+If <i>x</i> is an <small>@(@
+m  \times n
+@)@</small> matrix
+and <i>y</i> is an <small>@(@
+n  \times p
+@)@</small> matrix,
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;*&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>sets <i>z</i> to the <small>@(@
+m \times p
+@)@</small> matrix with 
+the <small>@(@
+(i,j)
+@)@</small> element given by
+<small>@[@
+
+	z_{i,j} = \sum_{k=1}^n x_{i,k} y_{k,j}
+
+@]@</small>
+
+<br>
+<br>
+<big><a name="Matlab or Octave.Example" id="Matlab or Octave.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     function [ok] = matrix_prod_ok()
+     ok  = true;
+     m   = 3;
+     n   = 2;
+     p   = 4;
+     x   = rand(m, n);
+     y   = rand(n, p);
+     % --------------
+     z      = x * y;
+     % --------------
+     [m, p] = size(z);
+     ok     = ok &amp; (m == 3);
+     ok     = ok &amp; (p == 4);
+     for i = [1 : m]
+     	for j = [1 : p]
+     		zij = 0;
+     		for k = [1 : n]
+     			zij = zij + x(i, k) * y(k, j);
+     		end
+     		ok  = ok &amp; abs(z(i, j) - zij) &lt; 1e-10;
+     	end
+     end
+     return 
+</pre><br>
+</font></code><br>
+<b><big><a name="C++" id="C++">C++</a></big></b>
+<br>
+The corresponding C++ syntax is
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;prod(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>where <i>x</i>, <i>y</i> and <i>z</i> are
+ublas <code><font color="blue">matrix&lt;double&gt;</font></code> objects with sizes 
+<small>@(@
+m \times n
+@)@</small>, <small>@(@
+n \times p
+@)@</small> and 
+<small>@(@
+m \times p
+@)@</small> respectively.
+
+<br>
+<br>
+<big><a name="C++.Example" id="C++.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     # include &lt;boost/numeric/ublas/matrix.hpp&gt;
+     # include &lt;mat2cpp.hpp&gt;
+     bool matrix_prod_ok(void)
+     {	bool   ok  = true;
+     	using namespace mat2cpp;
+     
+     	size_t i, j, k, m(3), n(2), p(4);
+     	matrix&lt;double&gt; x = rand(m, n);
+     	matrix&lt;double&gt; y = rand(n, p);
+     	// ---------------------------
+     	matrix&lt;double&gt; z = prod(x, y);
+     	// ---------------------------
+     	ok &amp;= (z.size1() == m);
+     	ok &amp;= (z.size2() == p);
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; p; j++)
+     		{	double zij = 0.;
+     			for(k = 0; k &lt; n; k++)
+     				zij += x(i,k) * y(k,j);
+     			ok &amp;= std::fabs(z(i, j) - zij) &lt; 1e-10;
+     		}
+     	}
+     	return ok;
+     }
+</pre><br>
+</font></code>
+<hr>Input File: omh/matrix_prod.omh
+
+</body>
+</html>

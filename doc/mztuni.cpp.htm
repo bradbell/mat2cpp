@@ -1,0 +1,184 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>C++ Marsaglia Zaman Tsang Uniform Random Number Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="C++ Marsaglia Zaman Tsang Uniform Random Number Source Code">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_mztuni.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="mztuni_ok.cpp.htm" target="_top">Prev</a>
+</td><td><a href="_reference.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>mztuni</option>
+<option>mztuni.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>mztuni-&gt;</option>
+<option>mztuni_ok.cpp</option>
+<option>mztuni.cpp</option>
+</select>
+</td>
+<td>mztuni.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>C++ Marsaglia Zaman Tsang Uniform Random Number Source Code</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+*/
+# include &lt;cstddef&gt;    // for size_t
+# include &lt;cassert&gt;    // for assert
+# include &lt;ctime&gt;      // for std::time and std::time_t
+# include &lt;mztuni.hpp&gt; // routines implemented here
+//
+size_t mztuni_seed(size_t seed)
+{    static size_t previous_seed = 0;
+     if( seed == 0 )
+          return previous_seed;
+     //
+     if( seed == 1 )
+     {    // initialize the random number generator using the clock for a seed
+          std::time_t* null_ptr = 0;
+          std::time_t seconds   = std::time(null_ptr);
+          seed                  = static_cast&lt;size_t&gt;( seconds );
+          seed                  = seed % 796594175 + 3;
+     }
+     mztuni(seed - 1);
+     previous_seed = seed;
+     //
+     return previous_seed;
+}
+double mztuni(size_t seedm1)
+{    assert( seedm1 &lt;= 796594176 );
+
+     // define local mod function
+     class mod_class {
+     public:
+          size_t operator()(size_t i, size_t j)
+          {    return i % j; }
+     };
+     mod_class mod;
+     //
+     // static data that persists between function calls
+     static double u[98], c, cd, cm;
+     static size_t ip, jp;
+     //
+     if( seedm1 &gt; 0 )
+     {    size_t i, j, k, l, m;
+          size_t stmp = seedm1;
+          i    = mod(stmp, 168);
+          stmp = stmp / 168;
+          j    = mod(stmp, 168) + 1;
+          stmp = stmp / 168;
+          k    = mod(stmp, 168) + 1;
+          stmp = stmp / 168;
+          l    = mod(stmp, 168) + 1;
+          assert( i != 1 || j != 1 || k != 1 || l != 1 );
+          for(size_t ii = 1; ii &lt;=97; ii++)
+          {    double s = 0.0;
+               double t = 0.5;
+               for(size_t jj = 1; jj &lt;= 24; jj++)
+               {    m = mod( mod(i * j, 179) * k, 179 );
+                    i = j;
+                    j = k;
+                    k = m;
+                    l = mod(53 * l + 1, 169);
+                    if( mod(l * m, 64) &gt;= 32) 
+                         s = s + t;
+                    t = 0.5 * t;
+               }
+               u[ii] = s;
+          }
+          // There is a typo in the paper, where the fortran version has
+          // CD =  7654321. / 167777216.;
+          c  =   362436. / 16777216.;
+          cd =  7654321. / 16777216.;
+          cm = 16777213. / 16777216.;
+          ip = 97;
+          jp = 33;
+          //
+          return 0.0;
+     }
+     double uni = u[ip] - u[jp];
+     if(uni &lt; 0.0)
+          uni = uni +  1.0;
+     u[ip] = uni;
+     //
+     ip = ip - 1;
+     if(ip == 0)
+          ip = 97;
+     //
+     jp = jp - 1;
+     if(jp == 0)
+          jp = 97;
+     //
+     c = c - cd;
+     if(c &lt; 0.0)
+          c = c + cm;
+     //
+     uni = uni - c;
+     if(uni &lt; 0.0)
+          uni = uni + 1.0;
+     return uni;
+}
+</pre></font></code>
+
+<hr>Input File: lib/mztuni.cpp
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Adding a New Routine to the Mat2cpp Library</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Adding a New Routine to the Mat2cpp Library">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_library_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="news.htm" target="_top">Prev</a>
+</td><td><a href="mztuni.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>library</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>library</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Purpose</option>
+<option>Include File</option>
+<option>Library</option>
+<option>Documentation</option>
+<option>Octave Test</option>
+<option>C++ Test</option>
+<option>Build</option>
+<option>Distribution</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+
+<center><b><big><big>Adding a New Routine to the Mat2cpp Library</big></big></b></center>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This guide lists the steps you must go through to add a new feature
+to the <code><font color="blue">mat2cpp</font></code> library.
+For the sake of presentation, we will call it <i>new_routine</i>.
+
+<br>
+<br>
+<b><big><a name="Include File" id="Include File">Include File</a></big></b>
+<br>
+In the file <code><font color="blue">mat2cpp/mat2cpp.hpp</font></code>:
+In the comments,
+under the heading mat2cpp Functions, 
+add <i>new_routine</i>
+to the list of functions in the <code><font color="blue">mat2cpp</font></code> namespace.
+In the source code,
+an external prototype for <i>new_routine</i>.
+
+
+<br>
+<br>
+<b><big><a name="Library" id="Library">Library</a></big></b>
+<br>
+Create the file <code><font color="blue"><span style='white-space: nowrap'>mat2cpp/lib/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>.cpp</span></font></code>.
+This file should contain the source for the routine 
+together with the proper comments so OMhelp can 
+include the source code in the documentation.
+In addition, add 
+<code><font color="blue"><span style='white-space: nowrap'>mat2cpp/lib/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>.cpp</span></font></code>
+to the file <code><font color="blue">mat2cpp/lib/Makefile.am</font></code>.
+
+
+<br>
+<br>
+<b><big><a name="Documentation" id="Documentation">Documentation</a></big></b>
+<br>
+Create the file <code><font color="blue"><span style='white-space: nowrap'>mat2cpp/omh/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>.omh</span></font></code>.
+This file should contain the OMhelp documentation for the routine.
+In addition,
+decide which documentation file should be the parent 
+of this routine; for example,
+should it come under <code><font color="blue">mat2cpp/omh/elementwise.omh</font></code>
+or perhaps <code><font color="blue">mat2cpp/omh/other.omh</font></code>.
+Then add a reference to
+<code><font color="blue"><span style='white-space: nowrap'>mat2cpp/omh/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>.omh</span></font></code>
+in the parent documentation file.
+You should also add a link to the documentation
+for <i>new_routine</i> in <code><font color="blue">mat2cpp/NEWS</font></code>.
+
+<br>
+<br>
+<b><big><a name="Octave Test" id="Octave Test">Octave Test</a></big></b>
+<br>
+Create the file
+<code><font color="blue"><span style='white-space: nowrap'>mat2cpp/mat/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>_ok.m</span></font></code>
+This file should contain a test of the feature
+you are adding in the context of Matlab or Octave.
+You will also need to add
+<code><font color="blue"><span style='white-space: nowrap'>mat2cpp/cpp/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>_ok</span></font></code>
+to the file <code><font color="blue">mat2cpp/cpp/mat2cpp_ok.m</font></code>
+The execute the tests in Octave or Matlab
+to make sure that it is correct
+(before going ahead with a similar test in C++
+using the new code).
+
+<br>
+<br>
+<b><big><a name="C++ Test" id="C++ Test">C++ Test</a></big></b>
+<br>
+Create the file 
+<code><font color="blue"><span style='white-space: nowrap'>mat2cpp/cpp/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>_ok.cpp</span></font></code>.
+This file should contain a test of <i>new_routine</i>.
+In addition, add 
+<code><font color="blue"><span style='white-space: nowrap'>mat2cpp/cpp/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>_ok.cpp</span></font></code>
+to the file <code><font color="blue">mat2cpp/cpp/Makefile.am</font></code>.
+You will also need to add
+<code><font color="blue"><span style='white-space: nowrap'>mat2cpp/cpp/</span></font></code><i><span style='white-space: nowrap'>new_routine</span></i><code><font color="blue"><span style='white-space: nowrap'>_ok</span></font></code>
+to the file <code><font color="blue">mat2cpp/cpp/mat2cpp_ok.cpp</font></code>
+
+<br>
+<br>
+<b><big><a name="Build" id="Build">Build</a></big></b>
+<br>
+In the <code><font color="blue">mat2cpp</font></code> directory,
+execute the command
+<code><font color='blue'><pre style='display:inline'> 
+     ./Build version
+     ./Build autoconf
+     ./Build automake
+</pre></font></code>
+This will make sure that your <code><font color="blue">Makefile.am</font></code> files
+can be processed by <code><font color="blue">automake</font></code>.
+If no errors result,
+continue on with the command
+<code><font color='blue'><pre style='display:inline'> 
+     ./Build configure
+</pre></font></code>
+If the boost directory is not proper for your system,
+then edit the <code><font color="blue">Build</font></code> script so that it is and 
+repeat this command.
+Then execute the commands
+<code><font color='blue'><pre style='display:inline'> 
+     ./Build make
+     cpp/mat2cpp_ok
+</pre></font></code>
+This should execute the complete set of tests including
+the one you just added.
+The next step is to execute
+<code><font color='blue'><pre style='display:inline'> 
+     ./Build omhelp
+</pre></font></code>
+This will build you new documentation 
+(and you may have to correct OMhelp errors before continuing).
+You can complete the changes by executing the commands:
+<code><font color='blue'><pre style='display:inline'> 
+     ./Build dist
+     ./Build test
+</pre></font></code>
+The change into the directory and test the distribution
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;mat2cpp-</span></font></code><i><span style='white-space: nowrap'>yy</span></i><code><font color="blue"><span style='white-space: nowrap'>-</span></font></code><i><span style='white-space: nowrap'>mm</span></i><code><font color="blue"><span style='white-space: nowrap'>-</span></font></code><i><span style='white-space: nowrap'>dd</span></i><code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpp/mat2cpp_ok<br>
+</span></font></code>This should run the C++ version of the tests program.
+<code><font color='blue'><pre style='display:inline'> 
+     cd mat
+     octave
+     mat2cpp_ok
+</pre></font></code>
+This should run the Octave version of the test program
+(running the Matlab is similar).
+
+<br>
+<br>
+<b><big><a name="Distribution" id="Distribution">Distribution</a></big></b>
+<br>
+The final distribution is
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mat2cpp-</span></font></code><i><span style='white-space: nowrap'>yy</span></i><code><font color="blue"><span style='white-space: nowrap'>-</span></font></code><i><span style='white-space: nowrap'>mm</span></i><code><font color="blue"><span style='white-space: nowrap'>-</span></font></code><i><span style='white-space: nowrap'>dd</span></i><code><font color="blue"><span style='white-space: nowrap'>.tar.gz<br>
+</span></font></code>
+<hr>Input File: omh/library.omh
+
+</body>
+</html>

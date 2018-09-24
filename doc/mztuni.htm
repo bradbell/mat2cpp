@@ -1,0 +1,274 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>C++ Marsaglia Zaman Tsang Uniform Random Number Generator</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="C++ Marsaglia Zaman Tsang Uniform Random Number Generator">
+<meta name="keywords" id="keywords" content=" C++ uniform random number generator Marsaglia Zaman Tsang typo ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_mztuni_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="library.htm" target="_top">Prev</a>
+</td><td><a href="mztuni_ok.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>mztuni-&gt;</option>
+<option>mztuni_ok.cpp</option>
+<option>mztuni.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Purpose</option>
+<option>Reference</option>
+<option>---..Typo</option>
+<option>include</option>
+<option>seed</option>
+<option>---..seed &gt;= 2</option>
+<option>---..seed == 1</option>
+<option>---..seed == 0</option>
+<option>s</option>
+<option>u</option>
+<option>Example</option>
+<option>---..Source</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>C++ Marsaglia Zaman Tsang Uniform Random Number Generator</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>include&nbsp;&lt;mztuni.hpp&gt;<br>
+</span></font></code>
+
+<code><i><font color="black"><span style='white-space: nowrap'>s</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;mztuni_seed(</span></font><i><font color="black"><span style='white-space: nowrap'>seed</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+
+<code><i><font color="black"><span style='white-space: nowrap'>u</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;mztuni()</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This C++ random number generator is portable; to be specific
+the same seed gives same results for different computers.
+In addition, it is easy to implement and thereby avoids having to link
+in a large random number library; see
+<a href="mztuni.cpp.htm" target="_top"><span style='white-space: nowrap'>mztuni.cpp</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Reference" id="Reference">Reference</a></big></b>
+
+
+
+<br>
+G. Marsaglia, A. Zaman, and W.W. Tsang,
+Toward a universal random number generator,
+Statistics &amp; Probability Letters,
+Volume 8,
+pages 35-39,
+1990.
+
+<br>
+<br>
+<big><a name="Reference.Typo" id="Reference.Typo">Typo</a></big>
+
+<br>
+The Fortran version in Table 2 of the reference above contains the following
+line of code:
+<code><font color='blue'><pre style='display:inline'> 
+     CD = 7654321./167777216.
+</pre></font></code>
+Using this value in <code><font color="blue">mztuni</font></code>
+does not produce the values in Table 4 of the reference.
+Replacing the value above
+by the value below does produce the values in Table 4:
+<code><font color='blue'><pre style='display:inline'> 
+     CD = 7654321./16777216.
+</pre></font></code>
+<br>
+<b><big><a name="include" id="include">include</a></big></b>
+<br>
+Because it can be used without the rest of <code><font color="blue">mat2cpp</font></code>, this routine 
+is not in the <code><font color="blue">mat2cpp</font></code> namespace and has its own include file.
+
+<br>
+<br>
+<b><big><a name="seed" id="seed">seed</a></big></b>
+
+
+<br>
+<br>
+<big><a name="seed.seed &gt;= 2" id="seed.seed &gt;= 2">seed &gt;= 2</a></big>
+<br>
+The argument 
+<code><i><font color="black"><span style='white-space: nowrap'>seed</span></font></i></code>
+ has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size_t&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>seed</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+and is used to seed the random number generator.
+The function call
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;RSTART(</span></font><i><font color="black"><span style='white-space: nowrap'>I</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>J</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>K</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>L</span></font></i><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>
+in the reference above corresponds to
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>seed</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;(((</span></font><i><font color="black"><span style='white-space: nowrap'>L</span></font></i><font color="blue"><span style='white-space: nowrap'>-1)*168&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>K</span></font></i><font color="blue"><span style='white-space: nowrap'>-1)*168&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>J</span></font></i><font color="blue"><span style='white-space: nowrap'>-1)*168&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>I</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;+&nbsp;1<br>
+</span></font></code>
+Note the restriction that 
+<code><i><font color="black"><span style='white-space: nowrap'>I</span></font></i></code>
+, 
+<code><i><font color="black"><span style='white-space: nowrap'>J</span></font></i></code>
+, 
+<code><i><font color="black"><span style='white-space: nowrap'>K</span></font></i></code>
+ and 
+<code><i><font color="black"><span style='white-space: nowrap'>L</span></font></i></code>
+
+are between <code><font color="blue">1</font></code> and <code><font color="blue">168</font></code> and not all equal to <code><font color="blue">1</font></code>; i.e.,
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&lt;=&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>seed</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&lt;=&nbsp;796594177<br>
+</span></font></code>
+<br>
+<big><a name="seed.seed == 1" id="seed.seed == 1">seed == 1</a></big>
+<br>
+If the special case where 
+<code><i><font color="black"><span style='white-space: nowrap'>seed</span></font></i></code>
+ is equal to one,
+the current time is used to choose the actual seed between three
+and 796594177.
+This actual seed is then used to seed the random number generator.
+
+<br>
+<br>
+<big><a name="seed.seed == 0" id="seed.seed == 0">seed == 0</a></big>
+<br>
+In the special case where 
+<code><i><font color="black"><span style='white-space: nowrap'>seed</span></font></i></code>
+ is equal to zero,
+no action is taken.
+This case is useful for retrieving the previous seed used
+to seed the random number generator.
+
+
+<br>
+<br>
+<b><big><a name="s" id="s">s</a></big></b>
+<br>
+The return value 
+<code><i><font color="black"><span style='white-space: nowrap'>s</span></font></i></code>
+ has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size_t&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>s</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+It is the previous seed that was used to seed the random number generator.
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>seed&nbsp;&gt;&nbsp;0</span></font></i></code>
+,
+the 
+<code><i><font color="black"><span style='white-space: nowrap'>s</span></font></i></code>
+ corresponds to this call to <code><font color="blue">mztuni_seed</font></code>.
+
+<br>
+<br>
+<b><big><a name="u" id="u">u</a></big></b>
+<br>
+The return value 
+<code><i><font color="black"><span style='white-space: nowrap'>u</span></font></i></code>
+ has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>u</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+It is sample of a random variable that is uniformly distributed between
+the values zero and one.
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The file <a href="mztuni_ok.cpp.htm" target="_top"><span style='white-space: nowrap'>mztuni_ok.cpp</span></a>
+
+contains an example and test of this routine.
+It returns true if it succeeds and false otherwise.
+
+<br>
+<br>
+<big><a name="Example.Source" id="Example.Source">Source</a></big>
+<br>
+The file <a href="mztuni.cpp.htm" target="_top"><span style='white-space: nowrap'>mztuni.cpp</span></a>
+ contains the 
+C++ source code that implements <code><font color="blue">mztuni</font></code>.
+
+
+<hr>Input File: omh/mztuni.omh
+
+</body>
+</html>

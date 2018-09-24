@@ -1,0 +1,167 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Matrix Division Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Matrix Division Source Code">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_matrix_div.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="matrix_div.htm" target="_top">Prev</a>
+</td><td><a href="matrix_prod.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>matrixwise</option>
+<option>matrix_div</option>
+<option>matrix_div.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>matrixwise-&gt;</option>
+<option>diag_prod</option>
+<option>cholesky</option>
+<option>matrix_div</option>
+<option>matrix_prod</option>
+<option>transpose</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>matrix_div-&gt;</option>
+<option>matrix_div.cpp</option>
+</select>
+</td>
+<td>matrix_div.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Matrix Division Source Code</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+# include &lt;cassert&gt;
+# include &lt;mat2cpp.hpp&gt;
+# include &lt;config.h&gt;
+
+# define DGESV_F77 F77_FUNC_(dgesv, DGESV)
+
+namespace mat2cpp {
+     // Linkage for Fortran version of the Lapack routine dgesv
+     extern &quot;C&quot; fortran_subroutine DGESV_F77(
+          fortran_integer   *n, 
+          fortran_integer   *nrhs, 
+          fortran_double    *a, 
+          fortran_integer   *lda, 
+          fortran_integer   *ipv, 
+          fortran_double    *b, 
+          fortran_integer   *ldb, 
+          fortran_integer   *info
+     );
+     matrix&lt;double&gt; matrix_div
+     (const matrix&lt;double&gt; &amp;x, const matrix&lt;double&gt; &amp;y, size_t &amp;rank)
+     {    assert( x.size1() == x.size2() );
+          assert( x.size2() == y.size1() );
+     
+          size_t i, j;
+          size_t m               = y.size1();
+          size_t n               = y.size2();
+          fortran_double  *a     = new fortran_double  [m * m];
+          fortran_double  *b     = new fortran_double  [m * n];
+          fortran_integer *ipv   = new fortran_integer [m];
+          for(i = 0; i &lt; m; i++)
+          {    for(j = 0; j &lt; m; j++)
+                    a[ i + j * m ] = x(i, j);
+               for(j = 0; j &lt; n; j++)
+                    b[ i + j * m ] = y(i, j);
+          }
+          fortran_integer lda  = fortran_integer(m);
+          fortran_integer ldb  = fortran_integer(m);
+          fortran_integer fm   = fortran_integer(m);
+          fortran_integer fn   = fortran_integer(n);
+          fortran_integer info;
+          DGESV_F77(&amp;fm, &amp;fn, a, &amp;lda, ipv, b, &amp;ldb, &amp;info);
+     
+          assert( info &gt;= 0 );
+          if( info == 0 )
+               rank = m;
+          else rank = size_t(info - 1);
+     
+          matrix&lt;double&gt; z(m, n);
+          for(i = 0; i &lt; m; i++)
+          {    for(j = 0; j &lt; n; j++)
+                    z(i, j) = b[ i + j * m ];
+          }
+          delete [] ipv;
+          delete [] b;
+          delete [] a;
+          return z;
+     }
+
+}
+</pre></font></code>
+
+<hr>Input File: lib/matrix_div.cpp
+
+</body>
+</html>

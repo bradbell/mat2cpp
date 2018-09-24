@@ -1,0 +1,138 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Diagonal Matrix Product with General Matrix Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Diagonal Matrix Product with General Matrix Source Code">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_diag_prod.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="diag_prod.htm" target="_top">Prev</a>
+</td><td><a href="cholesky.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>matrixwise</option>
+<option>diag_prod</option>
+<option>diag_prod.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>matrixwise-&gt;</option>
+<option>diag_prod</option>
+<option>cholesky</option>
+<option>matrix_div</option>
+<option>matrix_prod</option>
+<option>transpose</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>diag_prod-&gt;</option>
+<option>diag_prod.cpp</option>
+</select>
+</td>
+<td>diag_prod.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Diagonal Matrix Product with General Matrix Source Code</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+# include &lt;cassert&gt;
+# include &lt;mat2cpp.hpp&gt;
+namespace mat2cpp {
+     matrix&lt;double&gt; diag_prod 
+     (const matrix&lt;double&gt; &amp;x, const matrix&lt;double&gt; &amp;y)
+     {    size_t i, j, m(y.size1()), n(y.size2());
+          matrix&lt;double&gt; z(m, n);
+          if( x.size1() == 1 )
+          {    // check that dimensions match
+               assert( x.size2() == m );
+               for(i = 0; i &lt; m; i++)
+               {    for(j = 0; j &lt; n; j++)
+                         z(i, j) = x(0, i) * y(i, j);
+               }
+          }
+          else if( x.size2() == 1 )
+          {    // check that dimensions match
+               assert( x.size1() == m );
+               for(i = 0; i &lt; m; i++)
+               {    for(j = 0; j &lt; n; j++)
+                         z(i, j) = x(i, 0) * y(i, j);
+               }
+          }
+          else
+          {    // this is a diag_prod usage error
+               assert(0);
+          }
+          return z;
+     }
+}
+</pre></font></code>
+
+<hr>Input File: lib/diag_prod.cpp
+
+</body>
+</html>

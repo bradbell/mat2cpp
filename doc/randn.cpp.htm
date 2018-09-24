@@ -1,0 +1,141 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Normal Random Matrix Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Normal Random Matrix Source Code">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_randn.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="randn.htm" target="_top">Prev</a>
+</td><td><a href="size.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>other</option>
+<option>randn</option>
+<option>randn.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>other-&gt;</option>
+<option>extend</option>
+<option>ones</option>
+<option>rand</option>
+<option>randn</option>
+<option>size</option>
+<option>slice</option>
+<option>zeros</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>randn-&gt;</option>
+<option>randn.cpp</option>
+</select>
+</td>
+<td>randn.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Normal Random Matrix Source Code</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+# include &lt;cstdlib&gt;
+# include &lt;mat2cpp.hpp&gt;
+# include &lt;cmath&gt;
+
+namespace mat2cpp {
+     matrix&lt;double&gt; randn(size_t m, size_t n) 
+     {    // use formula 30.3 of Statistical Distributions (3rd ed)
+          // Merran Evans, Nicholas Hastings, and Brian Peacock
+          matrix&lt;double&gt; u = rand(m * n + 1 , 1);
+          matrix&lt;double&gt; x(m, n);
+          size_t i, j, k;
+          double pi  = 4. * std::atan(1.);
+          double square, amp, angle;
+          k = 0;
+          for(i = 0; i &lt; m; i++)
+          {    for(j = 0; j &lt; n; j++)
+               {    if( k % 2 == 0 )
+                    {    square = - 2. * std::log( u(k, 0) );
+                         if( square &lt; 0. )
+                              square = 0.;
+                         amp = sqrt(square);
+                         angle = 2. * pi * u(k+1, 0);
+                         x(i, j) = amp * std::sin( angle );
+                    }
+                    else x(i, j) = amp * std::cos( angle );
+                    k++;
+               }
+          }
+          return x;
+     }
+}
+</pre></font></code>
+
+<hr>Input File: lib/randn.cpp
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Cholesky Factor a Matrix Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Cholesky Factor a Matrix Source Code">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_cholesky.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="cholesky.htm" target="_top">Prev</a>
+</td><td><a href="matrix_div.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>matrixwise</option>
+<option>cholesky</option>
+<option>cholesky.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>matrixwise-&gt;</option>
+<option>diag_prod</option>
+<option>cholesky</option>
+<option>matrix_div</option>
+<option>matrix_prod</option>
+<option>transpose</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>cholesky-&gt;</option>
+<option>cholesky.cpp</option>
+</select>
+</td>
+<td>cholesky.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Cholesky Factor a Matrix Source Code</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+# include &lt;cassert&gt;
+# include &lt;mat2cpp.hpp&gt;
+# include &lt;config.h&gt;
+
+# define C2DPOTRF_F77 F77_FUNC_(c2dpotrf, C2DPOTRF)
+
+namespace mat2cpp {
+     // Linkage for Fortran version of the Lapack routine dpotrf
+     extern &quot;C&quot; fortran_subroutine C2DPOTRF_F77(
+          fortran_integer   *c_uplo, 
+          fortran_integer   *n, 
+          fortran_double    *a, 
+          fortran_integer   *lda, 
+          fortran_integer   *info
+     );
+     matrix&lt;double&gt; cholesky
+     (const matrix&lt;double&gt; &amp;x, size_t &amp;rank)
+     {    assert( x.size1() == x.size2() );
+          size_t i, j;
+
+          size_t m = x.size1(); 
+          fortran_integer c_uplo = fortran_integer('U'); 
+          fortran_double  *a     = new fortran_double  [m * m];
+          for(i = 0; i &lt; m; i++)
+          {    for(j = 0; j &lt; m; j++)
+                    a[ i + j * m ] = x(i, j);
+          }
+          fortran_integer lda  = fortran_integer(m);
+          fortran_integer fm   = fortran_integer(m);
+          fortran_integer info;
+          C2DPOTRF_F77 (&amp;c_uplo, &amp;fm, a, &amp;lda, &amp;info);
+     
+          assert( info &gt;= 0 );
+          if( info == 0 )
+               rank = m;
+          else rank = size_t(info - 1);
+     
+          matrix&lt;double&gt; z(m, m);
+          for(i = 0; i &lt; m; i++)
+          {    for(j = i; j &lt; m; j++)
+                    z(i, j) = a[ i + j * m ];
+               for(j = 0; j &lt; i; j++)
+                    z(i, j) = 0.;
+          }
+          delete [] a;
+          return z;
+     }
+
+}
+</pre></font></code>
+
+<hr>Input File: lib/cholesky.cpp
+
+</body>
+</html>

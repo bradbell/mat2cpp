@@ -1,0 +1,174 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>The Matlab or Octave to C++ Using Ublas Include File</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="The Matlab or Octave to C++ Using Ublas Include File">
+<meta name="keywords" id="keywords" content=" include mat2cpp.hpp ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_mat2cpp.hpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="zeros.htm" target="_top">Prev</a>
+</td><td><a href="mat2cpp_ok.m.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>mat2cpp.hpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>mat2cpp.hpp</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Purpose</option>
+<option>Ublas Linkage</option>
+<option>mat2cpp Functions</option>
+<option>---..Fortran Linkage</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>The Matlab or Octave to C++ Using Ublas Include File</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<code><font color="blue"><br>
+# include &lt;mat2cpp.hpp&gt;</font></code>
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+
+
+<br>
+<br>
+<b><big><a name="Ublas Linkage" id="Ublas Linkage">Ublas Linkage</a></big></b>
+<br>
+The <code><font color="blue">mat2cpp.hpp</font></code> contains 
+the following include commands:
+<code><font color='blue'><pre style='display:inline'> 
+     # include &lt;boost/numeric/ublas/matrix.hpp&gt;
+     # include &lt;boost/numeric/ublas/matrix_proxy.hpp&gt;
+</pre></font></code>
+In addition, it links the following 
+<code><font color="blue">ublas</font></code> identifiers to the <code><font color="blue">mat2cpp</font></code> namespace:
+<code><font color="blue">matrix</font></code>, <code><font color="blue">zero_matrix</font></code>, <code><font color="blue">scalar_matrix</font></code>,
+<code><font color="blue">slice</font></code>, <code><font color="blue">matrix_slice</font></code>.
+It also defines <code><font color="blue">matrix_slice_double</font></code> using
+<code><font color='blue'><pre style='display:inline'> 
+     typedef matrix_slice&lt; matrix&lt;double&gt; &gt;  matrix_slice_double;
+</pre></font></code>
+<br>
+<b><big><a name="mat2cpp Functions" id="mat2cpp Functions">mat2cpp Functions</a></big></b>
+<br>
+The <code><font color="blue">mat2cpp.hpp</font></code> include also
+defines linkage for the following 
+<code><font color="blue">mat2cpp</font></code> namespace functions:
+
+<table><tr><td align='left'  valign='top'>
+
+<code><font color="blue">abs</font></code>         </td><td align='left'  valign='top'>
+ <a href="element_unary.htm" target="_top">Matlab or Octave Elementwise Unary Functions</a> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">log</font></code>         </td><td align='left'  valign='top'>
+ <a href="element_unary.htm" target="_top">Matlab or Octave Elementwise Unary Functions</a> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">diag_prod</font></code>   </td><td align='left'  valign='top'>
+ <a href="diag_prod.htm" target="_top">Diagonal Matrix Product with General Matrix</a>     </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">matrix_div</font></code>  </td><td align='left'  valign='top'>
+ <a href="matrix_div.htm" target="_top">Matrix Division</a>    </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">max</font></code>         </td><td align='left'  valign='top'>
+ <a href="max.htm" target="_top">Maximum Element of a Matrix</a>           </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">min</font></code>         </td><td align='left'  valign='top'>
+ <a href="min.htm" target="_top">Minimum Element of a Matrix</a>           </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">scalar</font></code>      </td><td align='left'  valign='top'>
+ <a href="scalar.htm" target="_top">Convert Matrix to Scalar</a>        </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">sum</font></code>         </td><td align='left'  valign='top'>
+ <a href="sum.htm" target="_top">Sum The Elements of a Matlab</a>           </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">rand</font></code>        </td><td align='left'  valign='top'>
+ <a href="rand.htm" target="_top">Uniform Random Matrix</a>          </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">randn</font></code>       </td><td align='left'  valign='top'>
+ <a href="randn.htm" target="_top">Normal Random Matrix</a>         </td></tr><tr><td align='left'  valign='top'>
+
+</td></tr>
+</table>
+<br>
+<big><a name="mat2cpp Functions.Fortran Linkage" id="mat2cpp Functions.Fortran Linkage">Fortran Linkage</a></big>
+<br>
+The <code><font color="blue">mat2cpp.hpp</font></code> include also
+defines the following types:
+<table><tr><td align='left'  valign='top'>
+
+<code><font color="blue">fortran_integer</font></code> </td><td align='left'  valign='top'>
+ 
+	the type in C++ corresponding to Fortran integer </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">fortran_double</font></code> </td><td align='left'  valign='top'>
+ 
+	the type in C++ corresponding to Fortran double precision </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">fortran_subroutine</font></code> </td><td align='left'  valign='top'>
+ 
+	the return type in C++ corresponding to Fortran subroutine 
+</td></tr>
+</table>
+
+<hr>Input File: mat2cpp.hpp
+
+</body>
+</html>

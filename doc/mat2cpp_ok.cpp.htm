@@ -1,0 +1,158 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Run C++ Version of Examples</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Run C++ Version of Examples">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_mat2cpp_ok.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="mat2cpp_ok.m.htm" target="_top">Prev</a>
+</td><td><a href="news.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>mat2cpp_ok.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>mat2cpp_ok.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+<center><b><big><big>Run C++ Version of Examples</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+# include &lt;iostream&gt;
+# include &lt;cstdlib&gt;
+# include &lt;mztuni.hpp&gt;
+
+extern bool add_ok(void);
+extern bool cholesky_ok(void);
+extern bool diag_prod_ok(void);
+extern bool element_div_ok(void);
+extern bool element_prod_ok(void);
+extern bool element_unary_ok(void);
+extern bool extend_ok(void);
+extern bool matrix_div_ok(void);
+extern bool matrix_prod_ok(void);
+extern bool max_ok(void);
+extern bool min_ok(void);
+extern bool mztuni_ok(void);
+extern bool ones_ok(void);
+extern bool rand_ok(void);
+extern bool randn_ok(void);
+extern bool scalar_ok(void);
+extern bool scalar_div_ok(void);
+extern bool scalar_prod_ok(void);
+extern bool size_ok(void);
+extern bool slice_ok(void);
+extern bool sub_ok(void);
+extern bool sum_ok(void);
+extern bool transpose_ok(void);
+extern bool zeros_ok(void);
+
+bool run_test(bool test(void), const char *name)
+{    bool ok = test();
+     if( ok )
+          std::cout &lt;&lt; &quot;ok:    &quot; &lt;&lt; name &lt;&lt; std::endl;
+     else std::cout &lt;&lt; &quot;error: &quot; &lt;&lt; name &lt;&lt; std::endl;
+     return ok;
+}
+int main()
+{    bool ok   = true;
+
+     // initialize the random number generator using the clock for a seed
+     mztuni_seed(1);
+     ok &amp;= mztuni_seed(0) != 0;
+
+     // run all the tests
+     ok   = ok &amp; run_test(add_ok, &quot;add_ok&quot;);
+     ok   = ok &amp; run_test(cholesky_ok, &quot;cholesky_ok&quot;);
+     ok   = ok &amp; run_test(diag_prod_ok, &quot;diag_prod_ok&quot;);
+     ok   = ok &amp; run_test(element_div_ok, &quot;element_div_ok&quot;);
+     ok   = ok &amp; run_test(element_prod_ok, &quot;element_prod_ok&quot;);
+     ok   = ok &amp; run_test(element_unary_ok, &quot;element_unary_ok&quot;);
+     ok   = ok &amp; run_test(extend_ok, &quot;extend_ok&quot;);
+     ok   = ok &amp; run_test(matrix_div_ok, &quot;matrix_div_ok&quot;);
+     ok   = ok &amp; run_test(matrix_prod_ok, &quot;matrix_prod_ok&quot;);
+     ok   = ok &amp; run_test(max_ok, &quot;max_ok&quot;);
+     ok   = ok &amp; run_test(min_ok, &quot;min_ok&quot;);
+     ok   = ok &amp; run_test(ones_ok, &quot;ones_ok&quot;);
+     ok   = ok &amp; run_test(rand_ok, &quot;rand_ok&quot;);
+     ok   = ok &amp; run_test(randn_ok,&quot;randn_ok&quot;);
+     ok   = ok &amp; run_test(scalar_ok, &quot;scalar_ok&quot;);
+     ok   = ok &amp; run_test(scalar_div_ok, &quot;scalar_div_ok&quot;);
+     ok   = ok &amp; run_test(scalar_prod_ok, &quot;scalar_prod_ok&quot;);
+     ok   = ok &amp; run_test(size_ok, &quot;size_ok&quot;);
+     ok   = ok &amp; run_test(slice_ok, &quot;slice_ok&quot;);
+     ok   = ok &amp; run_test(sub_ok, &quot;sub_ok&quot;);
+     ok   = ok &amp; run_test(sum_ok, &quot;sum_ok&quot;);
+     ok   = ok &amp; run_test(transpose_ok, &quot;transpose_ok&quot;);
+     ok   = ok &amp; run_test(zeros_ok, &quot;zeros_ok&quot;);
+     //
+     // do this test last because it tests setting the seed
+     if( ok )
+          ok   = ok &amp; run_test(mztuni_ok, &quot;mztuni_ok&quot;);
+     std::cout &lt;&lt; std::endl;
+     if( ok )
+          std::cout &lt;&lt; &quot;All tests passed&quot; &lt;&lt; std::endl;
+     else
+     {    std::cout &lt;&lt; &quot;At least one test failed&quot; &lt;&lt; std::endl;
+          std::cout &lt;&lt; &quot;mztuni_seed = &quot; &lt;&lt; mztuni_seed(0) &lt;&lt; std::endl;
+     }
+     int error = ! ok;
+     return error;
+}
+</pre></font></code>
+
+<hr>Input File: cpp/mat2cpp_ok.cpp
+
+</body>
+</html>

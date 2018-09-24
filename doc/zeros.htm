@@ -1,0 +1,189 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Matrix of Zeros</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Matrix of Zeros">
+<meta name="keywords" id="keywords" content=" zeros ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_zeros_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="slice.htm" target="_top">Prev</a>
+</td><td><a href="mat2cpp.hpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>other</option>
+<option>zeros</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>other-&gt;</option>
+<option>extend</option>
+<option>ones</option>
+<option>rand</option>
+<option>randn</option>
+<option>size</option>
+<option>slice</option>
+<option>zeros</option>
+</select>
+</td>
+<td>zeros</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Matlab or Octave</option>
+<option>---..Example</option>
+<option>C++</option>
+<option>---..Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Matrix of Zeros</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<b>Matlab or Octave</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;zeros(</span></font></code><i><span style='white-space: nowrap'>m</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>n</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr><tr><td align='left'  valign='top'>
+
+<b>C++</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"><span style='white-space: nowrap'>zero_matrix&lt;double&gt;&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>(</span></font></code><i><span style='white-space: nowrap'>m</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>n</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr>
+</table>
+<br>
+<b><big><a name="Matlab or Octave" id="Matlab or Octave">Matlab or Octave</a></big></b>
+<br>
+If <i>m</i> and <i>n</i> are integer scalars,
+the Matlab or Octave syntax
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;zeros(</span></font></code><i><span style='white-space: nowrap'>m</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>n</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>sets <i>x</i> to an <small>@(@
+m \times n
+@)@</small> matrix with all 
+its elements equal to zero.
+
+<br>
+<br>
+<big><a name="Matlab or Octave.Example" id="Matlab or Octave.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     function [ok] = zeros_ok()
+     ok      = true;
+     m       = 2;
+     n       = 3;
+     % --------------------
+     x       = zeros(2, 3);
+     % --------------------
+     [m, n]  = size(x);
+     ok      = ok &amp; (m == 2);
+     ok      = ok &amp; (n == 3);
+     ok      = ok &amp; all( all( x == 0 ) );
+     return
+</pre><br>
+</font></code><br>
+<b><big><a name="C++" id="C++">C++</a></big></b>
+<br>
+The corresponding C++ syntax is
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zero_matrix&lt;double&gt;&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>(</span></font></code><i><span style='white-space: nowrap'>m</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>n</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>where <i>m</i> and <i>n</i> are <code><font color="blue">size_t</font></code> objects
+and <i>x</i> is an <small>@(@
+m \times n
+@)@</small> ublas <code><font color="blue">matrix&lt;double&gt;</font></code> object.
+
+
+<br>
+<br>
+<big><a name="C++.Example" id="C++.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     # include &lt;mat2cpp.hpp&gt;
+     bool zeros_ok(void)
+     {	bool   ok  = true;
+     	using namespace mat2cpp;
+     
+     	size_t i, j, m(2), n(3);
+     	// -------------------------
+     	zero_matrix&lt;double&gt; x(m, n);
+     	// -------------------------
+     	ok &amp;= (x.size1() == m);
+     	ok &amp;= (x.size2() == n);
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; n; j++)
+     			ok &amp;= (x(i,j) == 0.);
+     	}
+     	return ok;
+     }
+</pre><br>
+</font></code>
+<hr>Input File: omh/zeros.omh
+
+</body>
+</html>

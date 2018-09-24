@@ -1,0 +1,209 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Elementwise Subtraction</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Elementwise Subtraction">
+<meta name="keywords" id="keywords" content=" element subtract ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_sub_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="scalar_prod.htm" target="_top">Prev</a>
+</td><td><a href="matrixwise.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>elementwise</option>
+<option>sub</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>elementwise-&gt;</option>
+<option>add</option>
+<option>element_div</option>
+<option>element_prod</option>
+<option>element_unary</option>
+<option>scalar_div</option>
+<option>scalar_prod</option>
+<option>sub</option>
+</select>
+</td>
+<td>sub</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Matlab or Octave</option>
+<option>---..Example</option>
+<option>C++</option>
+<option>---..Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Elementwise Subtraction</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<b>Matlab or Octave</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;-&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i>
+</td></tr><tr><td align='left'  valign='top'>
+
+<b>C++</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;-&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i>
+</td></tr>
+</table>
+<br>
+<b><big><a name="Matlab or Octave" id="Matlab or Octave">Matlab or Octave</a></big></b>
+<br>
+If <i>x</i> and <i>y</i> are a <small>@(@
+m  \times n
+@)@</small> matrices,
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;-&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>sets <i>z</i> to the <small>@(@
+m \times n
+@)@</small> matrix with 
+the <small>@(@
+(i,j)
+@)@</small> element given by
+<small>@[@
+
+	z_{i,j} = x_{i,j} - y_{i,j}
+
+@]@</small>
+
+<br>
+<br>
+<big><a name="Matlab or Octave.Example" id="Matlab or Octave.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     function [ok] = sub_ok()
+     ok  = true;
+     m   = 3;
+     n   = 2;
+     x   = rand(m, n);
+     y   = rand(m, n);
+     % -------------
+     z      = x - y;
+     % -------------
+     [m, n] = size(z);
+     ok     = ok &amp; (m == 3);
+     ok     = ok &amp; (n == 2);
+     for i = [1 : m]
+     	for j = [1 : n]
+     		zij = x(i, j) - y(i, j);
+     		ok  = ok &amp; abs(z(i, j) - zij) &lt; 1e-10;
+     	end
+     end
+     return 
+</pre><br>
+</font></code><br>
+<b><big><a name="C++" id="C++">C++</a></big></b>
+<br>
+The corresponding C++ syntax is
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>z</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;-&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>where <i>x</i>, <i>y</i>, and <i>z</i> are 
+ublas <code><font color="blue">matrix&lt;double&gt;</font></code> objects
+with size <small>@(@
+m \times n
+@)@</small>.
+
+<br>
+<br>
+<big><a name="C++.Example" id="C++.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     # include &lt;cmath&gt;
+     # include &lt;mat2cpp.hpp&gt;
+     bool sub_ok(void)
+     {	bool   ok  = true;
+     	using namespace mat2cpp;
+     
+     	size_t i, j, m(3), n(2);
+     	matrix&lt;double&gt; x = rand(m, n);
+     	matrix&lt;double&gt; y = rand(m, n);
+     	// ----------------------
+     	matrix&lt;double&gt; z = x - y;
+     	// ----------------------
+     	ok &amp;= (z.size1() == m);
+     	ok &amp;= (z.size2() == n);
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; n; j++)
+     		{	double zij = x(i,j) - y(i,j);
+     			ok &amp;= std::fabs(z(i, j) - zij) &lt; 1e-10;
+     		}
+     	}
+     	return ok;
+     }
+</pre><br>
+</font></code>
+<hr>Input File: omh/sub.omh
+
+</body>
+</html>

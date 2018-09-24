@@ -1,0 +1,124 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Minimum Element of a Matrix Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Minimum Element of a Matrix Source Code">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_min.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="min.htm" target="_top">Prev</a>
+</td><td><a href="scalar.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>scalar_valued</option>
+<option>min</option>
+<option>min.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>scalar_valued-&gt;</option>
+<option>max</option>
+<option>min</option>
+<option>scalar</option>
+<option>sum</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>min-&gt;</option>
+<option>min.cpp</option>
+</select>
+</td>
+<td>min.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Minimum Element of a Matrix Source Code</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+# include &lt;mat2cpp.hpp&gt;
+# include &lt;cassert&gt;
+namespace mat2cpp {
+     double min 
+     (const matrix&lt;double&gt; &amp;x)
+     {    assert( x.size1() * x.size2() &gt; 0 );
+          double y = x(0, 0);
+          size_t m = x.size1();
+          size_t n = x.size2();
+          size_t i, j;
+          for(i = 0; i &lt; m; i++)
+          {    for(j = 0; j &lt; n; j++)
+                    y = std::min(y, x(i, j));
+          }
+          return y;
+     }
+}
+</pre></font></code>
+
+<hr>Input File: lib/min.cpp
+
+</body>
+</html>

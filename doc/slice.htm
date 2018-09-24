@@ -1,0 +1,242 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Matrix Slices</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Matrix Slices">
+<meta name="keywords" id="keywords" content=" slice sub-matrix ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_slice_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="size.htm" target="_top">Prev</a>
+</td><td><a href="zeros.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>other</option>
+<option>slice</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>other-&gt;</option>
+<option>extend</option>
+<option>ones</option>
+<option>rand</option>
+<option>randn</option>
+<option>size</option>
+<option>slice</option>
+<option>zeros</option>
+</select>
+</td>
+<td>slice</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Matlab or Octave</option>
+<option>---..Example</option>
+<option>C++</option>
+<option>---..Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Matrix Slices</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<b>Matlab or Octave</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_start</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;:&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_stride</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;:&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_limit</span></i>
+</td></tr><tr><td align='left'  valign='top'>
+ </td><td align='left'  valign='top'>
+
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>c</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_start</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;:&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_stride</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;:&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_limit</span></i>
+</td></tr><tr><td align='left'  valign='top'>
+ </td><td align='left'  valign='top'>
+
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>(</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>c</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+
+</td></tr><tr><td align='left'  valign='top'>
+
+<b>C++</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"><span style='white-space: nowrap'>slice&nbsp;</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;slice(</span></font></code><i><span style='white-space: nowrap'>r_start</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_stride</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_len</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr><tr><td align='left'  valign='top'>
+ </td><td align='left'  valign='top'>
+
+<code><font color="blue"><span style='white-space: nowrap'>slice&nbsp;</span></font></code><i><span style='white-space: nowrap'>c</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;slice(</span></font></code><i><span style='white-space: nowrap'>c_start</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_stride</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_len</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr><tr><td align='left'  valign='top'>
+ </td><td align='left'  valign='top'>
+
+<code><font color="blue"><span style='white-space: nowrap'>matrix_slice_double&nbsp;(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>c</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr>
+</table>
+<br>
+<b><big><a name="Matlab or Octave" id="Matlab or Octave">Matlab or Octave</a></big></b>
+<br>
+If <i>x</i>, <i>y</i> are matrices,
+<i>r</i>, <i>c</i> are vectors,
+and the other values below are integer scalars,
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_start</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;:&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_stride</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;:&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_limit</span></i><code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>c</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_start</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;:&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_stride</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;:&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_limit</span></i><code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>(</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>c</span></i><code><font color="blue"><span style='white-space: nowrap'>)&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>Sets <i>r</i> to the vector of integers starting at
+<i>r_start</i>, incrementing by <i>r_stride</i> and all of which
+are less than or equal <i>r_limit</i>.
+It sets <i>c</i> in a similar fashion and then sets
+the corresponding sub-set of rows and columns of <i>x</i> to the 
+matrix in <i>y</i>.
+
+<br>
+<br>
+<big><a name="Matlab or Octave.Example" id="Matlab or Octave.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     function [ok] = slice_ok()
+     ok      = true;
+     m       = 3;
+     n       = 4;
+     x       = (1 : m)' * (1 : n);
+     y       = zeros(2, 2);
+     % --------------------
+     r       = 1 : 2 : 3;
+     c       = 1 : 2 : 3;
+     x(r, c) = y;
+     % --------------------
+     [p, q]  = size(x);
+     ok      = ok &amp; (m == p);
+     ok      = ok &amp; (n == q);
+     for i = 1 : m
+     	for j = 1 : n
+     		if any(i == r) &amp; any( j == c) 
+     			ok = ok &amp; x(i, j) == 0;
+     		else
+     			ok = ok &amp; x(i, j) == i * j;
+     		end
+     	end
+     end
+     return
+</pre><br>
+</font></code><br>
+<b><big><a name="C++" id="C++">C++</a></big></b>
+<br>
+The corresponding C++ syntax is
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slice&nbsp;</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;slice(</span></font></code><i><span style='white-space: nowrap'>r_start</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_stride</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>r_len</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;slice&nbsp;</span></font></code><i><span style='white-space: nowrap'>c</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;slice(</span></font></code><i><span style='white-space: nowrap'>c_start</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_stride</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>c_len</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matrix_slice_double&nbsp;(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>r</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>c</span></i><code><font color="blue"><span style='white-space: nowrap'>)&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>where <i>x</i> is a ublas <code><font color="blue">matrix&lt;double&gt;</font></code> object,
+<i>r</i>, <i>c</i> are 
+<code><font color="blue">mat2cpp</font></code> <code><font color="blue">matrix_slice_double</font></code> objects,
+and the other values are <code><font color="blue">size_t</font></code> scalars.
+
+
+<br>
+<br>
+<big><a name="C++.Example" id="C++.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     # include &lt;mat2cpp.hpp&gt;
+     bool slice_ok(void)
+     {	bool   ok  = true;
+     	using namespace mat2cpp;
+     
+     	size_t i, j, k, m(3), n(4);
+     	matrix&lt;double&gt; x(m, n);
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; n; j++)
+     			x(i, j) = i * j;
+     	}
+     	zero_matrix&lt;double&gt; y(2, 2);
+     	// -------------------------
+     	slice r = slice(0, 2, 2);
+     	slice c = slice(0, 2, 2);
+     	matrix_slice_double (x, r, c) = y;
+     	// -------------------------
+     	ok &amp;= (x.size1() == m);
+     	ok &amp;= (x.size2() == n);
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; n; j++)
+     		{ 	bool row_match = false;
+     			for(k = 0; k &lt; r.size(); k++)
+     				row_match |= (i == r.start() + r.stride() * k);
+     			bool col_match = false;
+     			for(k = 0; k &lt; c.size(); k++)
+     				col_match |= (j == c.start() + c.stride() * k);
+     			if( row_match &amp; col_match )
+     				ok &amp;= (x(i,j) == 0.);
+     			else	ok &amp;= (x(i,j) == double(i * j));
+     		}
+     	}
+     	return ok;
+     }
+</pre><br>
+</font></code>
+<hr>Input File: omh/slice.omh
+
+</body>
+</html>

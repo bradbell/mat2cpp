@@ -1,0 +1,203 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Getting Started</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Getting Started">
+<meta name="keywords" id="keywords" content=" output matrix ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_getstarted_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="license.htm" target="_top">Prev</a>
+</td><td><a href="operation.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>getstarted</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>getstarted</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Purpose</option>
+<option>Problem Definition</option>
+<option>Matlab or Octave Solution</option>
+<option>---..Program</option>
+<option>---..Output</option>
+<option>Conversion to C++ using C++</option>
+<option>---..Program</option>
+<option>---..Compile and Link</option>
+<option>---..Output</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Getting Started</big></big></b></center>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This is a quick introduction by example to the
+conversion of Matlab or Octave to C++ using  
+<a href="http://www.boost.org/libs/numeric/ublas/doc/overview.htm" target="_top"><span style='white-space: nowrap'>ublas</span></a>
+
+and this package.
+
+<br>
+<br>
+<b><big><a name="Problem Definition" id="Problem Definition">Problem Definition</a></big></b>
+<br>
+Suppose that we want to solve the following set of linear equations:
+<small>@[@
+
+\left( \begin{array}{cc}
+	1 & 2 \\
+	3 & 4 
+\end{array} \right)
+\left( \begin{array}{cc}
+	x_1 \\
+	x_2 
+\end{array} \right)
+=
+\left( \begin{array}{cc}
+	1 \\
+	2 
+\end{array} \right)
+
+@]@</small>
+
+<br>
+<br>
+<b><big><a name="Matlab or Octave Solution" id="Matlab or Octave Solution">Matlab or Octave Solution</a></big></b>
+
+
+<br>
+<br>
+<big><a name="Matlab or Octave Solution.Program" id="Matlab or Octave Solution.Program">Program</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>a = [ 1., 2. ; 3., 4. ];
+b = [ 1. ; 2. ];
+x = a \ b
+</pre><br>
+</font></code><br>
+<big><a name="Matlab or Octave Solution.Output" id="Matlab or Octave Solution.Output">Output</a></big>
+<br>
+Executing this program in Octave yields the following output:
+<code><font color='blue'><pre style='display:inline'> 
+x =
+
+  0.00000
+  0.50000
+</pre></font></code>
+<br>
+<b><big><a name="Conversion to C++ using C++" id="Conversion to C++ using C++">Conversion to C++ using C++</a></big></b>
+
+
+<br>
+<br>
+<big><a name="Conversion to C++ using C++.Program" id="Conversion to C++ using C++.Program">Program</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'># include &lt;mat2cpp.hpp&gt;
+# include &lt;boost/numeric/ublas/io.hpp&gt;
+int main(void)
+{	using namespace mat2cpp;
+
+	double a_data[] = {1., 2., 3., 4.};
+	double b_data[] = {1., 2.};
+	matrix&lt;double&gt; a(2, 2);
+	matrix&lt;double&gt; b(2, 1);
+	size_t i, j;
+	for(i = 0; i &lt; 2; i++)
+	{	b(i, 0) = b_data[i];
+		for(j = 0; j &lt; 2; j++)
+			a(i, j) = a_data[i * 2 + j];
+	}	
+	size_t rank;
+	matrix&lt;double&gt; x = matrix_div(a, b, rank);
+	std::cout &lt;&lt; &quot;x =&quot; &lt;&lt; x &lt;&lt; std::endl;
+
+	return 0;
+}
+
+
+</pre><br>
+</font></code><br>
+<big><a name="Conversion to C++ using C++.Compile and Link" id="Conversion to C++ using C++.Compile and Link">Compile and Link</a></big>
+<br>
+The following command compiles and links this program
+using the GNU C++ compiler:
+<code><font color="blue"><span style='white-space: nowrap'><br>
+g++&nbsp;getstarted.cpp&nbsp;-o&nbsp;getstarted&nbsp;\<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I</span></font></code><i><span style='white-space: nowrap'>boost_dir</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;-L</span></font></code><i><span style='white-space: nowrap'>prefix_dir</span></i><code><font color="blue"><span style='white-space: nowrap'>/lib&nbsp;-lmat2cpp&nbsp;-llapack<br>
+</span></font></code>where <i>boost_dir</i> is the directory where the 
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>boost_dir</span></i><code><font color="blue"><span style='white-space: nowrap'>/boost/numeric/ublas/matrix.hpp<br>
+</span></font></code>include file is installed 
+(see the <a href="mat2cpp.htm#Test and Install" target="_top"><span style='white-space: nowrap'>mat2cpp&nbsp;install</span></a>
+ instructions).
+
+<br>
+<br>
+<big><a name="Conversion to C++ using C++.Output" id="Conversion to C++ using C++.Output">Output</a></big>
+
+
+
+<code><font color='blue'><pre style='display:inline'> 
+x =[2,1]((0),(0.5))
+</pre></font></code>
+
+<hr>Input File: omh/getstarted.omh
+
+</body>
+</html>

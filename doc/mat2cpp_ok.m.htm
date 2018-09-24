@@ -1,0 +1,116 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Run Matlab or Octave Version of Examples</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Run Matlab or Octave Version of Examples">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_mat2cpp_ok.m_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="mat2cpp.hpp.htm" target="_top">Prev</a>
+</td><td><a href="mat2cpp_ok.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>mat2cpp_ok.m</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>mat2cpp_ok.m</td>
+<td>Headings</td>
+</tr></table><br>
+<center><b><big><big>Run Matlab or Octave Version of Examples</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+function mat2cpp_ok()
+ok   = true;
+ok   = ok &amp; run_test('add_ok');
+ok   = ok &amp; run_test('cholesky_ok');
+ok   = ok &amp; run_test('diag_prod_ok');
+ok   = ok &amp; run_test('element_div_ok');
+ok   = ok &amp; run_test('element_prod_ok');
+ok   = ok &amp; run_test('element_unary_ok');
+ok   = ok &amp; run_test('extend_ok');
+ok   = ok &amp; run_test('matrix_div_ok');
+ok   = ok &amp; run_test('matrix_prod_ok');
+ok   = ok &amp; run_test('max_ok');
+ok   = ok &amp; run_test('min_ok');
+ok   = ok &amp; run_test('ones_ok');
+ok   = ok &amp; run_test('rand_ok');
+ok   = ok &amp; run_test('randn_ok');
+ok   = ok &amp; run_test('scalar_div_ok');
+ok   = ok &amp; run_test('scalar_prod_ok');
+ok   = ok &amp; run_test('size_ok');
+ok   = ok &amp; run_test('slice_ok');
+ok   = ok &amp; run_test('sub_ok');
+ok   = ok &amp; run_test('sum_ok');
+ok   = ok &amp; run_test('transpose_ok');
+ok   = ok &amp; run_test('zeros_ok');
+if ok
+     'All tests passed'
+else
+     'At least one test failed'
+end
+return
+------------------------------------
+function [ok] = run_test(test_name)
+ok = feval(test_name);
+if( ok )
+     ['ok:    ', test_name]
+else
+     ['error: ', test_name]
+end
+return
+</pre></font></code>
+
+<hr>Input File: mat/mat2cpp_ok.m
+
+</body>
+</html>

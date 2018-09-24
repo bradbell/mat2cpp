@@ -1,0 +1,240 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Uniform Random Matrix</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Uniform Random Matrix">
+<meta name="keywords" id="keywords" content=" rand matrix ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_rand_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="ones.htm" target="_top">Prev</a>
+</td><td><a href="rand.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>other</option>
+<option>rand</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>other-&gt;</option>
+<option>extend</option>
+<option>ones</option>
+<option>rand</option>
+<option>randn</option>
+<option>size</option>
+<option>slice</option>
+<option>zeros</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>rand-&gt;</option>
+<option>rand.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Matlab or Octave</option>
+<option>---..Example</option>
+<option>C++</option>
+<option>---..std::rand</option>
+<option>---..mztuni</option>
+<option>---..Example</option>
+<option>---..Source</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Uniform Random Matrix</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<b>Matlab or Octave</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;rand(</span></font></code><i><span style='white-space: nowrap'>m</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>n</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr><tr><td align='left'  valign='top'>
+
+<b>C++</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;rand(</span></font></code><i><span style='white-space: nowrap'>m</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>n</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr>
+</table>
+<br>
+<b><big><a name="Matlab or Octave" id="Matlab or Octave">Matlab or Octave</a></big></b>
+<br>
+If <i>m</i> and <i>n</i> are integer scalars,
+the Matlab or Octave syntax
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;rand(</span></font></code><i><span style='white-space: nowrap'>m</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>n</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>sets <i>x</i> to an <small>@(@
+m \times n
+@)@</small> matrix each entry
+drawn from an independent uniform distribution on the interval 
+<small>@(@
+[0,1]
+@)@</small>.  
+
+<br>
+<br>
+<big><a name="Matlab or Octave.Example" id="Matlab or Octave.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     function [ok] = rand_ok()
+     ok      = true;
+     m       = 2;
+     n       = 3;
+     % -------------------
+     x       = rand(2, 3);
+     % -------------------
+     [m, n]  = size(x);
+     ok      = ok &amp; (m == 2);
+     ok      = ok &amp; (n == 3);
+     ok      = ok &amp; all( all( 0 &lt; x ) );      % probability of limit case is zero
+     ok      = ok &amp; all( all( x &lt; 1 ) );
+     ok      = ok &amp; all( x(1,:) ~= x(2,:) );  % probability of equality is zero
+     return
+</pre><br>
+</font></code><br>
+<b><big><a name="C++" id="C++">C++</a></big></b>
+<br>
+The following is a C++ implementation of the 
+Matlab or Octave <code><font color="blue">rand</font></code> function with the syntax:
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;rand(</span></font></code><i><span style='white-space: nowrap'>m</span></i><code><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font></code><i><span style='white-space: nowrap'>n</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>where <i>m</i> and <i>n</i> are <code><font color="blue">size_t</font></code> values
+and <i>x</i> is an <small>@(@
+m \times n
+@)@</small> 
+ublas <code><font color="blue">matrix&lt;double&gt;</font></code> object.
+
+<br>
+<br>
+<big><a name="C++.std::rand" id="C++.std::rand">std::rand</a></big>
+<br>
+If you want to use <code><font color="blue">std::rand</font></code> to generate the random values,
+you must first call the standard library function
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::srand(</span></font></code><i><span style='white-space: nowrap'>seed</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>where <i>seed</i> is an <code><font color="blue">unsigned int</font></code>
+to initialize the random number generator.
+
+<br>
+<br>
+<big><a name="C++.mztuni" id="C++.mztuni">mztuni</a></big>
+<br>
+If there is a previous call of the form
+<a href="mztuni.htm#seed" target="_top"><span style='white-space: nowrap'>mztuni(seed)</span></a>
+ with 
+<code><i><font color="black"><span style='white-space: nowrap'>seed</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&gt;&nbsp;1</span></font></code>
+,
+the <a href="mztuni.htm" target="_top"><span style='white-space: nowrap'>mztuni</span></a>
+ random number generator will be used
+(instead of <code><font color="blue">std::rand</font></code>).
+
+<br>
+<br>
+<big><a name="C++.Example" id="C++.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     # include &lt;mat2cpp.hpp&gt;
+     # include &lt;cstdlib&gt;
+     
+     bool rand_ok(void)
+     {	bool   ok  = true;
+     	using namespace mat2cpp;
+     
+     	size_t i, j, m(2), n(3);
+     	// ---------------------------
+     	matrix&lt;double&gt; x = rand(m, n);
+     	// ---------------------------
+     	ok &amp;= (x.size1() == m);
+     	ok &amp;= (x.size2() == n);
+     	for(i = 0; i &lt; m; i++)
+     	{	for(j = 0; j &lt; n; j++)
+     		{	ok &amp;= (0. &lt; x(i, j) ); // probability of limit is zero
+     			ok &amp;= (x(i, j) &lt; 1.);
+     		}
+     	}
+     	for(j = 0; j &lt; n; j++)
+     		ok &amp;= (x(0, j) != x(1, j));    // probability zero
+     	return ok;
+     }
+</pre><br>
+</font></code><br>
+<big><a name="C++.Source" id="C++.Source">Source</a></big>
+<br>
+The file <a href="rand.cpp.htm" target="_top"><span style='white-space: nowrap'>rand.cpp</span></a>
+ contains the 
+C++ source code for this operation.
+
+
+<hr>Input File: omh/rand.omh
+
+</body>
+</html>

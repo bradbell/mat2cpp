@@ -1,0 +1,228 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Matlab or Octave Elementwise Unary Functions</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Matlab or Octave Elementwise Unary Functions">
+<meta name="keywords" id="keywords" content=" elementwise unary math function ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_element_unary_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="element_prod.htm" target="_top">Prev</a>
+</td><td><a href="element_unary.cpp.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>elementwise</option>
+<option>element_unary</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>elementwise-&gt;</option>
+<option>add</option>
+<option>element_div</option>
+<option>element_prod</option>
+<option>element_unary</option>
+<option>scalar_div</option>
+<option>scalar_prod</option>
+<option>sub</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>element_unary-&gt;</option>
+<option>element_unary.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Matlab or Octave</option>
+<option>---..Example</option>
+<option>C++</option>
+<option>---..Example</option>
+<option>---..Source</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Matlab or Octave Elementwise Unary Functions</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<table><tr><td align='left'  valign='top'>
+
+<b>Matlab or Octave</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>f</span></i><code><font color="blue"><span style='white-space: nowrap'>(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr><tr><td align='left'  valign='top'>
+
+<b>C++</b> </td><td align='left'  valign='top'>
+ 
+<code><font color="blue"></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>f</span></i><code><font color="blue"><span style='white-space: nowrap'>(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+</td></tr>
+</table>
+<br>
+<b><big><a name="Matlab or Octave" id="Matlab or Octave">Matlab or Octave</a></big></b>
+<br>
+If <i>x</i> is an <small>@(@
+m  \times n
+@)@</small> matrix,
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>f</span></i><code><font color="blue"><span style='white-space: nowrap'>(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>sets <i>y</i> to the <small>@(@
+m \times n
+@)@</small> matrix with 
+<small>@[@
+
+	y_{i,j} = f( x_{i,j} )
+
+@]@</small>
+where <i>f</i> can be any of the following functions:
+<table><tr><td align='left'  valign='top'>
+
+<b>f</b>   </td><td align='left'  valign='top'>
+ <b>Description</b>  </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">abs</font></code> </td><td align='left'  valign='top'>
+ absolute value       </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">log</font></code> </td><td align='left'  valign='top'>
+ logarithm            
+</td></tr>
+</table>
+<br>
+<big><a name="Matlab or Octave.Example" id="Matlab or Octave.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     function [ok] = element_unary_ok()
+     ok  = true;
+     m   = 2;
+     n   = 3;
+     x   = rand(m, n);
+     % ---------------
+     abs_x   = abs(x);
+     log_x   = log(x);
+     % ---------------
+     for i = 1 : m
+     	for j = 1 : n
+     		ok = ok &amp; ( abs_x(i, j) == abs(x(i, j)) );
+     		ok = ok &amp; ( log_x(i, j) == log(x(i, j)) );
+     	end
+     end
+     return
+</pre><br>
+</font></code><br>
+<b><big><a name="C++" id="C++">C++</a></big></b>
+<br>
+The following is a C++ implementation of the elementwise
+unary functions above with the syntax:
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></code><i><span style='white-space: nowrap'>y</span></i><code><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;</span></font></code><i><span style='white-space: nowrap'>f</span></i><code><font color="blue"><span style='white-space: nowrap'>(</span></font></code><i><span style='white-space: nowrap'>x</span></i><code><font color="blue"><span style='white-space: nowrap'>)<br>
+</span></font></code>where <i>x</i> and <i>y</i>
+ublas <code><font color="blue">matrix&lt;double&gt;</font></code> objects with size
+<small>@(@
+m  \times n
+@)@</small>.
+
+<br>
+<br>
+<big><a name="C++.Example" id="C++.Example">Example</a></big>
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>     # include &lt;mat2cpp.hpp&gt;
+     # include &lt;limits&gt;
+     
+     bool element_unary_ok(void)
+     {	bool   ok  = true;
+     	using namespace mat2cpp;
+     	double eps = 10. * std::numeric_limits&lt;double&gt;::epsilon();
+     
+     	size_t i, j, m(2), n(3);
+     	matrix&lt;double&gt; x = rand(m, n);
+     	// ---------------------------
+     	matrix&lt;double&gt; abs_x = abs(x);
+     	matrix&lt;double&gt; log_x = log(x);
+     	// ---------------------------
+     	for(j = 0; j &lt; n; j++)
+     	{	for(i = 0; i &lt; m; i++)
+     		{	ok &amp;= std::fabs( abs_x(i, j) - std::fabs(x(i, j)) ) &lt; eps;
+     			ok &amp;= std::fabs( log_x(i, j) - std::log(x(i, j))  ) &lt; eps;
+     		}
+     	}
+     	return ok;
+     }
+</pre><br>
+</font></code><br>
+<big><a name="C++.Source" id="C++.Source">Source</a></big>
+<br>
+The file <a href="element_unary.cpp.htm" target="_top"><span style='white-space: nowrap'>element_unary.cpp</span></a>
+ contains the 
+C++ source code for these functions.
+
+
+<hr>Input File: omh/element_unary.omh
+
+</body>
+</html>

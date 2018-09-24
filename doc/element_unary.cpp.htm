@@ -1,0 +1,131 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Elementwise Unary Functions Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Elementwise Unary Functions Source Code">
+<meta name="keywords" id="keywords" content=" ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_element_unary.cpp_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://github.com/bradbell/mat2cpp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="element_unary.htm" target="_top">Prev</a>
+</td><td><a href="scalar_div.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>mat2cpp</option>
+<option>operation</option>
+<option>elementwise</option>
+<option>element_unary</option>
+<option>element_unary.cpp</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down4(this)'>
+<option>mat2cpp-&gt;</option>
+<option>License</option>
+<option>getstarted</option>
+<option>operation</option>
+<option>mat2cpp.hpp</option>
+<option>mat2cpp_ok.m</option>
+<option>mat2cpp_ok.cpp</option>
+<option>News</option>
+<option>library</option>
+<option>mztuni</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>operation-&gt;</option>
+<option>elementwise</option>
+<option>matrixwise</option>
+<option>scalar_valued</option>
+<option>other</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>elementwise-&gt;</option>
+<option>add</option>
+<option>element_div</option>
+<option>element_prod</option>
+<option>element_unary</option>
+<option>scalar_div</option>
+<option>scalar_prod</option>
+<option>sub</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>element_unary-&gt;</option>
+<option>element_unary.cpp</option>
+</select>
+</td>
+<td>element_unary.cpp</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Elementwise Unary Functions Source Code</big></big></b></center>
+<code><font color='blue'><pre style='display:inline'> 
+# include &lt;cmath&gt;
+# include &lt;mat2cpp.hpp&gt;
+
+# define MAT2CPP_ELEMENT_UNARY(mat_f, std_f) \
+matrix&lt;double&gt; mat_f \
+(const matrix&lt;double&gt; &amp;x) \
+{    size_t i, j, m(x.size1()), n(x.size2()); \
+     matrix&lt;double&gt; y(m, n); \
+     for(i = 0; i &lt; m; i++) \
+     {    for(j = 0; j &lt; n; j++) \
+               y(i, j) = std::std_f(x(i, j)); \
+     } \
+     return y; \
+}
+
+namespace mat2cpp {
+     MAT2CPP_ELEMENT_UNARY(abs, fabs)
+     MAT2CPP_ELEMENT_UNARY(log, log)
+}
+
+# undef MAT2CPP_ELEMENT_UNARY
+</pre></font></code>
+
+<hr>Input File: lib/element_unary.cpp
+
+</body>
+</html>
