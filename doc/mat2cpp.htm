@@ -92,23 +92,18 @@ with the aid of
 <b><big><a name="Test and Install" id="Test and Install">Test and Install</a></big></b>
 
 <ol type="1"><li>
-Download the file
-<a href="mat2cpp-20180924.tar.gz" target="_top"><span style='white-space: nowrap'>mat2cpp-20180924.tar.gz</span></a>
-.
-
-</li><li>
-
-Extract the distribution in to the <code><font color="blue">mat2cpp-20180924</font></code> subdirectory
-with the command
+Download the source code
 <code><font color='blue'><pre style='display:inline'> 
-     tar -xvzf mat2cpp-20180924.tar.gz
+     git clone https://github.com/bradbell/mat2cpp.git mat2cpp.git
 </pre></font></code>
 </li><li>
 Build the library and test program with the command
 
 <code><font color="blue"><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;mat2cpp-20180924<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;./configure&nbsp;--prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>prefix_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;BOOST_DIR=</span></font><i><font color="black"><span style='white-space: nowrap'>boost_dir</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;mat2cpp.git<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkdir&nbsp;build<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;build<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;../configure&nbsp;--prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>prefix_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;BOOST_DIR=</span></font><i><font color="black"><span style='white-space: nowrap'>boost_dir</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;make<br>
 </span></font></code>
 where 
@@ -127,22 +122,18 @@ where
 Test the installation of the Matlab and Octave files with the commands
 <code><font color='blue'><pre style='display:inline'> 
      cd mat
-     octave
-     mat2cpp_ok
-     quit
+     octave mat2cpp_ok
      cd ..
 </pre></font></code>
 The <code><font color="blue">mat2cpp_ok</font></code> program should have responded
-that all the tests passed
+that all the octave tests passed
 (you can also run the program in Matlab).
 
 </li><li>
 
 Test the installation of the C++ files with the commands
 <code><font color='blue'><pre style='display:inline'> 
-     cd cpp
-     ./mat2cpp_ok
-     cd ..
+     build/cpp/mat2cpp_ok
 </pre></font></code>
 The <code><font color="blue">mat2cpp_ok</font></code> program should have responded
 that all the tests passed.
@@ -154,20 +145,17 @@ that all the tests passed.
 Install the <code><font color="blue">mat2cpp</font></code> library and include file in the standard locations
 with the following commands
 <code><font color='blue'><pre style='display:inline'> 
-     su
+     cd build
      make install
-     exit
+     cd ..
 </pre></font></code>
-(note you will have to entry the root password for the su command).
-
 </li><li>
-
 Compile and run the <a href="getstarted.htm" target="_top"><span style='white-space: nowrap'>getstarted</span></a>
  example with the following commands:
 
 <code><font color="blue"><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;cpp<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g++&nbsp;getstarted.cpp&nbsp;-o&nbsp;getstarted&nbsp;\<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;build<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g++&nbsp;../cpp/getstarted.cpp&nbsp;-o&nbsp;getstarted&nbsp;\<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I</span></font><i><font color="black"><span style='white-space: nowrap'>boost_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>/include&nbsp;\<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I</span></font><i><font color="black"><span style='white-space: nowrap'>prefix_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>/include&nbsp;\<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-L</span></font><i><font color="black"><span style='white-space: nowrap'>prefix_dir</span></font></i><font color="blue"><span style='white-space: nowrap'>/lib&nbsp;\<br>
