@@ -1,13 +1,13 @@
 #! /bin/bash -e
-brad_home_page="http://www.seanet.com/~bradbell/home.htm"
+project_home_page='https://github.com/bradbell/mat2cpp'
 if [ -e doc ]
 then
 	rm -r doc
 fi
 mkdir doc
 cd doc
-if ! omhelp ../mat2cpp.omh \
-	-xml -noframe -debug -image_link "$brad_home_page" > ../omhelp.log
+if ! omhelp ../doc.omh \
+	-noframe -debug -image_link "$project_home_page"
 then
 	echo 'Aborting, see OMhelp error message in omhelp.log'
 	exit 1
@@ -17,4 +17,3 @@ then
 	echo 'See the complete warning message in omhelp.log'
 	exit 1
 fi
-omhelp ../mat2cpp.omh -noframe -debug -image_link "$brad_home_page"

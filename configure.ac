@@ -1,5 +1,5 @@
 dnl     package,          version,  bugreport
-AC_INIT(mat2cpp, 20180919, bradbell@apl.washington.edu)
+AC_INIT(mat2cpp, 20180924, https://github.com/bradbell/mat2cpp/issues)
 
 dnl The directory corresponding to the installation of BOOST ------------
 AC_MSG_CHECKING( [BOOST_DIR] )
@@ -42,7 +42,7 @@ dnl Determine if ranlib is present and where it is if present (set RANLIB)
 AC_PROG_RANLIB
 
 dnl Have configure check distribution directory
-AC_CONFIG_SRCDIR([mat2cpp.omh])
+AC_CONFIG_SRCDIR([mat2cpp.hpp])
 
 dnl AC_CONFIG_FILES(file-list) for each file in the list, configure will
 dnl read file.in, do its substitutions, and create file

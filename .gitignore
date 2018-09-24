@@ -17,5 +17,11 @@
 /junk
 /missing
 /omhelp.log
+# ---------------------------------------------------------------------------
 # files to ignore in any directory
+#
+# autotools output files
 Makefile.in
+#
+# vim editor swap files
+*.swp

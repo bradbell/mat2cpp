@@ -30,7 +30,7 @@ done
 sed -i configure.ac \
 	-e "s|AC_INIT(mat2cpp, [0-9]\{8\},|AC_INIT(mat2cpp, $Today,|"
 #
-sed -i mat2cpp.omh \
+sed -i doc.omh \
 	-e "s|mat2cpp-[0-9]\{8\}|mat2cpp-$Today|"
 #
 echo "autoreconf --force --install"
