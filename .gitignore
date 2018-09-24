@@ -1,0 +1,27 @@
+# directories to ignore
+/build/
+/autom4te.cache/
+# /doc/
+# files to ignore
+/INSTALL
+/aclocal.m4
+/compile
+/config.h.in~
+/config.guess
+/config.h.in
+/config.sub
+/configure
+/depcomp
+/git_commit.sh
+/install-sh
+/junk
+/missing
+/omhelp.log
+# ---------------------------------------------------------------------------
+# files to ignore in any directory
+#
+# autotools output files
+Makefile.in
+#
+# vim editor swap files
+*.swp
