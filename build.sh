@@ -1,4 +1,10 @@
 #! /bin/bash -e
+# -----------------------------------------------------------------------------
+if [ "$0" != './build.sh' ]
+then
+	echo './build.sh: must be run from top source directory'
+	exit 1
+fi
 # ----------------------------------------------------------------
 boost_dir=/usr/include        # prefix for boost on this machine
 prefix=$HOME/prefix/mat2cpp   # prefix for installation
@@ -94,6 +100,6 @@ make
 #
 echo "build/cpp/mat2cpp_ok"
 cpp/mat2cpp_ok
-#
-echo "build.sh: mat2cpp OK"
+# -----------------------------------------------------------------------------
+echo "build.sh: OK"
 exit 0
