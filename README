@@ -1,2 +1,11 @@
-Documentation:
-	https://bradbell.github.io/mat2cpp/doc/mat2cpp.htm
+# Example Conversion of Matlab or Octave to C++
+
+## Support
+This package is no longer under development or supported.
+You could clone it and start your own development stream.
+
+## Documentation
+https://bradbell.github.io/mat2cpp/doc/mat2cpp.htm
+
+## License
+https://opensource.org/licenses/BSL-1.0
